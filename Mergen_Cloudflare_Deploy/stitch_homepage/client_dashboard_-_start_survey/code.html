@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Client Dashboard - Start Survey</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom range slider styling */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #135bec;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 2px rgba(0,0,0,0.5);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #324467;
+            border-radius: 2px;
+        }
+        .form-checkbox:checked {
+            background-color: #135bec;
+            border-color: #135bec;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white overflow-x-hidden flex flex-col min-h-screen">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-[#232f48] px-10 py-3 bg-white dark:bg-[#111722] sticky top-0 z-50">
+<div class="flex items-center gap-4 text-[#111418] dark:text-white">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">analytics</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">SurveyConnect</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-[#637588] dark:text-[#92a4c9] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-[#111418] dark:text-white text-sm font-medium leading-normal border-b-2 border-primary" href="#">Surveys</a>
+<a class="text-[#637588] dark:text-[#92a4c9] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Audience</a>
+<a class="text-[#637588] dark:text-[#92a4c9] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Billing</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-black/5 dark:hover:bg-white/5 text-[#637588] dark:text-[#92a4c9]">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="User profile picture placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPYShzMX4cBv59_oKO8Gd1UZDubHnJF4bWqfGG2Ey3ahKdc1Gp86Ld0F502XtPuNdEvIwhxzPCtzpF5kWYg1k01Hv9wBOxvDCvuQOSsYyOgh8rRFIwWMKy8m4jJrflRAuDF-ilYYt3gFnB922t2uE-71ALTPkD9xReuEvpdPPmEtXBOTVXLfrQIpq3bQ2VsAd9Kl2OqjK_S7QdVyX-n4shHRph3nFKddW7jz9ZldBBiCaXxVMIYPZeygbKBOajy2q1LAapzoKWVz7a");'></div>
+</div>
+</div>
+</header>
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center py-8 px-4 md:px-8">
+<div class="layout-content-container flex flex-col max-w-[1280px] flex-1">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 px-4 pb-4">
+<a class="text-[#637588] dark:text-[#92a4c9] text-sm font-medium leading-normal hover:underline" href="#">Dashboard</a>
+<span class="text-[#637588] dark:text-[#92a4c9] text-sm font-medium leading-normal">/</span>
+<span class="text-[#111418] dark:text-white text-sm font-medium leading-normal">Create Survey</span>
+</div>
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between gap-3 px-4 pb-6">
+<div class="flex min-w-72 flex-col gap-2">
+<h1 class="text-[#111418] dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Create New Survey</h1>
+<p class="text-[#637588] dark:text-[#92a4c9] text-base font-normal leading-normal">Configure your target audience and survey parameters.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-10 px-4 rounded-lg bg-transparent border border-[#d1d5db] dark:border-[#324467] text-[#111418] dark:text-white text-sm font-bold flex items-center gap-2 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                            Save Draft
+                        </button>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-8 px-4">
+<!-- Left Column: Form Configuration -->
+<div class="flex-1 flex flex-col gap-8">
+<!-- Section 1: Basic Info -->
+<div class="flex flex-col gap-4 bg-white dark:bg-[#192233] p-6 rounded-xl border border-[#e5e7eb] dark:border-[#232f48]">
+<div class="flex items-center gap-3 border-b border-[#e5e7eb] dark:border-[#232f48] pb-4 mb-2">
+<span class="material-symbols-outlined text-primary">edit_document</span>
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">Survey Details</h3>
+</div>
+<div class="flex flex-col md:flex-row gap-4">
+<label class="flex flex-col flex-1">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal pb-2">Survey Title</p>
+<input class="form-input flex w-full rounded-lg border border-[#d1d5db] dark:border-[#324467] bg-[#f9fafb] dark:bg-[#111722] text-[#111418] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 placeholder:text-[#9ca3af] dark:placeholder:text-[#64748b] text-sm" placeholder="e.g., Q3 Customer Feedback" value=""/>
+</label>
+<label class="flex flex-col md:w-1/3">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal pb-2">Internal Reference ID</p>
+<input class="form-input flex w-full rounded-lg border border-[#d1d5db] dark:border-[#324467] bg-[#f9fafb] dark:bg-[#111722] text-[#111418] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 placeholder:text-[#9ca3af] dark:placeholder:text-[#64748b] text-sm" placeholder="Optional" value=""/>
+</label>
+</div>
+<label class="flex flex-col w-full">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal pb-2">Description</p>
+<textarea class="form-textarea flex w-full rounded-lg border border-[#d1d5db] dark:border-[#324467] bg-[#f9fafb] dark:bg-[#111722] text-[#111418] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary min-h-[100px] p-4 placeholder:text-[#9ca3af] dark:placeholder:text-[#64748b] text-sm resize-y" placeholder="Describe the purpose of this survey..."></textarea>
+</label>
+</div>
+<!-- Section 2: Audience Targeting -->
+<div class="flex flex-col gap-6 bg-white dark:bg-[#192233] p-6 rounded-xl border border-[#e5e7eb] dark:border-[#232f48]">
+<div class="flex items-center gap-3 border-b border-[#e5e7eb] dark:border-[#232f48] pb-4">
+<span class="material-symbols-outlined text-primary">group</span>
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">Target Audience</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Age Range -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<p class="text-[#111418] dark:text-white text-sm font-medium">Age Range</p>
+<span class="text-primary text-sm font-bold bg-primary/10 px-2 py-0.5 rounded">18 - 65+</span>
+</div>
+<div class="pt-2 px-1">
+<input class="w-full h-1 bg-[#d1d5db] dark:bg-[#324467] rounded-lg appearance-none cursor-pointer" max="99" min="18" type="range" value="18"/>
+<div class="flex justify-between text-xs text-[#637588] dark:text-[#92a4c9] mt-2">
+<span>18</span>
+<span>25</span>
+<span>35</span>
+<span>45</span>
+<span>55</span>
+<span>65+</span>
+</div>
+</div>
+</div>
+<!-- Financial Situation -->
+<label class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal pb-2">Financial Situation</p>
+<select class="form-select w-full rounded-lg border border-[#d1d5db] dark:border-[#324467] bg-[#f9fafb] dark:bg-[#111722] text-[#111418] dark:text-white focus:border-primary focus:ring-primary h-12 px-4 text-sm">
+<option>All Income Levels</option>
+<option>$0 - $25,000</option>
+<option>$25,000 - $50,000</option>
+<option>$50,000 - $100,000</option>
+<option>$100,000+</option>
+</select>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal pb-2">Location</p>
+<select class="form-select w-full rounded-lg border border-[#d1d5db] dark:border-[#324467] bg-[#f9fafb] dark:bg-[#111722] text-[#111418] dark:text-white focus:border-primary focus:ring-primary h-12 px-4 text-sm">
+<option>Global (All Countries)</option>
+<option>North America</option>
+<option>Europe</option>
+<option>Asia Pacific</option>
+</select>
+</label>
+<label class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal pb-2">Interests</p>
+<div class="relative">
+<select class="form-select w-full rounded-lg border border-[#d1d5db] dark:border-[#324467] bg-[#f9fafb] dark:bg-[#111722] text-[#111418] dark:text-white focus:border-primary focus:ring-primary h-12 px-4 text-sm">
+<option>Technology, Finance...</option>
+</select>
+<div class="absolute top-1/2 -translate-y-1/2 right-10 flex gap-1">
+<span class="bg-[#e5e7eb] dark:bg-[#324467] text-[#111418] dark:text-white text-xs px-2 py-0.5 rounded">Tech</span>
+<span class="bg-[#e5e7eb] dark:bg-[#324467] text-[#111418] dark:text-white text-xs px-2 py-0.5 rounded">Finance</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Toggles -->
+<div class="flex flex-wrap gap-4 pt-2">
+<div class="flex items-center gap-3 p-3 rounded-lg border border-[#e5e7eb] dark:border-[#324467] flex-1 min-w-[200px] hover:border-primary transition-colors cursor-pointer group">
+<div class="relative inline-block w-10 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="peer absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer checked:right-0 right-5" id="toggle1" name="toggle" type="checkbox"/>
+<label class="block overflow-hidden h-6 rounded-full bg-[#e5e7eb] dark:bg-[#324467] cursor-pointer peer-checked:bg-primary" for="toggle1"></label>
+</div>
+<label class="cursor-pointer" for="toggle1">
+<span class="block font-medium text-sm text-[#111418] dark:text-white">Homeowners</span>
+</label>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg border border-[#e5e7eb] dark:border-[#324467] flex-1 min-w-[200px] hover:border-primary transition-colors cursor-pointer group">
+<div class="relative inline-block w-10 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="peer absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer checked:right-0 right-5" id="toggle2" name="toggle" type="checkbox"/>
+<label class="block overflow-hidden h-6 rounded-full bg-[#e5e7eb] dark:bg-[#324467] cursor-pointer peer-checked:bg-primary" for="toggle2"></label>
+</div>
+<label class="cursor-pointer" for="toggle2">
+<span class="block font-medium text-sm text-[#111418] dark:text-white">Parents</span>
+</label>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg border border-[#e5e7eb] dark:border-[#324467] flex-1 min-w-[200px] hover:border-primary transition-colors cursor-pointer group">
+<div class="relative inline-block w-10 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="peer absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer checked:right-0 right-5" id="toggle3" name="toggle" type="checkbox"/>
+<label class="block overflow-hidden h-6 rounded-full bg-[#e5e7eb] dark:bg-[#324467] cursor-pointer peer-checked:bg-primary" for="toggle3"></label>
+</div>
+<label class="cursor-pointer" for="toggle3">
+<span class="block font-medium text-sm text-[#111418] dark:text-white">Business Owners</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Section 3: Scope & Quantity -->
+<div class="flex flex-col gap-6 bg-white dark:bg-[#192233] p-6 rounded-xl border border-[#e5e7eb] dark:border-[#232f48]">
+<div class="flex items-center gap-3 border-b border-[#e5e7eb] dark:border-[#232f48] pb-4">
+<span class="material-symbols-outlined text-primary">tune</span>
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">Survey Scope</h3>
+</div>
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex-1">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal pb-4">Number of Questions</p>
+<div class="flex items-center gap-4">
+<button class="size-10 rounded-full border border-[#d1d5db] dark:border-[#324467] flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-[#111418] dark:text-white">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="h-10 w-20 flex items-center justify-center rounded-lg bg-[#f9fafb] dark:bg-[#111722] border border-[#d1d5db] dark:border-[#324467] text-[#111418] dark:text-white font-bold">
+                                            10
+                                        </div>
+<button class="size-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-blue-600">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center pb-2">
+<p class="text-[#111418] dark:text-white text-sm font-medium">Required Respondents</p>
+<span class="text-primary text-sm font-bold">500</span>
+</div>
+<input class="w-full h-1 bg-[#d1d5db] dark:bg-[#324467] rounded-lg appearance-none cursor-pointer mt-4" max="5000" min="50" step="50" type="range" value="500"/>
+<div class="flex justify-between text-xs text-[#637588] dark:text-[#92a4c9] mt-2">
+<span>50</span>
+<span>5,000</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sticky Sidebar -->
+<div class="w-full lg:w-[380px] flex flex-col gap-6">
+<div class="sticky top-24 flex flex-col gap-6">
+<!-- Summary Card -->
+<div class="bg-white dark:bg-[#192233] rounded-xl border border-[#e5e7eb] dark:border-[#232f48] overflow-hidden shadow-sm">
+<div class="p-6 border-b border-[#e5e7eb] dark:border-[#232f48]">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold mb-1">Summary &amp; Estimate</h3>
+<p class="text-[#637588] dark:text-[#92a4c9] text-sm">Real-time cost calculation</p>
+</div>
+<div class="p-6 flex flex-col gap-4">
+<!-- Stats -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-[#f0f9ff] dark:bg-[#135bec]/10 border border-[#bae6fd] dark:border-primary/20">
+<span class="material-symbols-outlined text-primary mt-0.5">groups</span>
+<div>
+<p class="text-[#0c4a6e] dark:text-blue-100 text-sm font-medium">Audience Match</p>
+<p class="text-[#0369a1] dark:text-blue-200 text-xs mt-1">~14,000 users match this profile</p>
+</div>
+</div>
+<!-- Line Items -->
+<div class="flex flex-col gap-3 py-4 border-b border-[#e5e7eb] dark:border-[#232f48] border-dashed">
+<div class="flex justify-between items-center text-sm">
+<span class="text-[#637588] dark:text-[#92a4c9]">Base Cost (10 Questions)</span>
+<span class="text-[#111418] dark:text-white font-medium">$2.00 / resp.</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-[#637588] dark:text-[#92a4c9]">Targeting Fee</span>
+<span class="text-[#111418] dark:text-white font-medium">$0.50 / resp.</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-[#637588] dark:text-[#92a4c9]">Volume Discount</span>
+<span class="text-green-600 dark:text-green-400 font-medium">- $0.00</span>
+</div>
+</div>
+<!-- Total -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-end">
+<span class="text-[#111418] dark:text-white text-base font-medium">Total Estimate</span>
+<span class="text-[#111418] dark:text-white text-3xl font-black tracking-tight">$1,250.00</span>
+</div>
+<p class="text-right text-xs text-[#637588] dark:text-[#92a4c9]">Including Taxes &amp; Fees</p>
+</div>
+<button class="mt-4 w-full h-12 bg-primary hover:bg-blue-600 text-white font-bold rounded-lg shadow-lg shadow-blue-500/30 transition-all flex items-center justify-center gap-2">
+                                        Launch Survey
+                                        <span class="material-symbols-outlined">rocket_launch</span>
+</button>
+</div>
+</div>
+<!-- Help Card -->
+<div class="bg-[#f8fafc] dark:bg-[#1e293b] rounded-xl p-5 border border-[#e5e7eb] dark:border-[#232f48]">
+<div class="flex items-start gap-3">
+<div class="min-w-8 min-h-8 size-8 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined text-lg">lightbulb</span>
+</div>
+<div>
+<h4 class="text-[#111418] dark:text-white text-sm font-bold mb-1">Pro Tip</h4>
+<p class="text-[#637588] dark:text-[#94a3b8] text-xs leading-relaxed">Narrowing your audience too much might increase the cost per respondent. Try removing "Homeowners" to save approx 15%.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

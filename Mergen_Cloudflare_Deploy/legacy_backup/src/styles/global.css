@@ -1,0 +1,43 @@
+:root {
+  /* Colors */
+  --color-primary: #FF7043; /* Orange from logo */
+  --color-primary-dark: #D84315;
+  --color-secondary: #5C6BC0; /* Blue/Purple from user example */
+  --color-text: #1F2937;
+  --color-text-light: #6B7280;
+  --color-background: #F9FAFB;
+  --color-white: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}

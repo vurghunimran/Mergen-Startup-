@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewards | Mergen Community</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .reward-card {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #E5E7EB;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reward-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .reward-img-container {
+            height: 140px;
+            background: #F9FAFB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #F3F4F6;
+            position: relative;
+        }
+
+        .reward-logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: #374151;
+            letter-spacing: -0.5px;
+        }
+
+        .reward-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reward-perk {
+            background: #FFF7ED;
+            color: #C2410C;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 99px;
+            width: fit-content;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+
+<body style="background: #F8F9FA;">
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="sidebar-logo">
+                <img src="images/logo.svg" alt="Mergen Logo">
+                MERGEN
+            </a>
+
+            <nav class="sidebar-nav">
+                <a href="community-dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="community-my-surveys.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    My Surveys
+                </a>
+                <a href="community-earnings.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    Earnings
+                </a>
+                <a href="community-rewards.html" class="nav-link active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                    </svg>
+                    Rewards
+                </a>
+            </nav>
+
+            <div class="sidebar-user">
+                <div class="user-avatar" id="avatar-initial">A</div>
+                <div class="user-info">
+                    <span class="user-name" id="sidebar-username">Community Member</span>
+                    <span class="user-badge">Elite Member</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <header class="dash-header">
+                <div class="header-title">Perks & Rewards</div>
+                <div class="header-actions">
+                    <!-- Bell -->
+                    <div id="notification-bell" style="position:relative; cursor:pointer;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <div
+                            style="position:absolute; top:0; right:2px; width:8px; height:8px; background:#EF4444; border-radius:50%; border:2px solid white;">
+                        </div>
+                        <!-- Dropdown -->
+                        <div id="notification-dropdown"
+                            style="display:none; position:absolute; top: 120%; right: 0; width: 320px; background: white; border: 1px solid #E5E7EB; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-radius: 12px; z-index: 100; overflow:hidden;">
+                            <div
+                                style="padding: 1rem; border-bottom: 1px solid #F3F4F6; font-weight: 700; color: #111827; display: flex; justify-content: space-between;">
+                                <span>Notifications</span>
+                                <span style="font-size: 0.75rem; color: #E05D3A; cursor: pointer;">Mark all read</span>
+                            </div>
+                            <div class="notification-list" style="max-height: 300px; overflow-y: auto;">
+                                <div style="padding: 1rem; text-align:center; color:#6B7280; font-size:0.9rem;">No new
+                                    notifications</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div style="margin-bottom: 2rem;">
+                <h1 style="font-size: 1.8rem; font-weight: 800; color: #111827; margin:0;">Redeem Rewards</h1>
+                <p style="color: #6B7280; margin-top: 0.5rem;">Use your hard-earned credits to unlock exclusive local
+                    perks.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+                <!-- Nar Mobile -->
+                <div class="reward-card">
+                    <div class="reward-img-container" style="background:#E11D48;">
+                        <span class="reward-logo-text" style="color:white; font-family:sans-serif;">nar</span>
+                    </div>
+                    <div class="reward-body">
+                        <span class="reward-perk">MOBILE COMP</span>
+                        <h3 style="margin:0 0 0.5rem 0; color:#111827;">Nar Mobile - 2GB</h3>
+                        <p style="color:#6B7280; font-size:0.9rem; margin-bottom:1.5rem;">Get 2GB of high-speed mobile
+                            data added to your Nar balance.</p>
+                        <button class="btn btn-outline"
+                            style="width:100%; margin-top:auto; border-color:#E05D3A; color:#E05D3A;"
+                            onclick="activateReward(this)">Activate for 200 Credits</button>
+                    </div>
+                </div>
+
+                <!-- Misli -->
+                <div class="reward-card">
+                    <div class="reward-img-container" style="background:#16A34A;">
+                        <span class="reward-logo-text" style="color:white; letter-spacing:1px;">misli.az</span>
+                    </div>
+                    <div class="reward-body">
+                        <span class="reward-perk">ENTERTAINMENT</span>
+                        <h3 style="margin:0 0 0.5rem 0; color:#111827;">Misli - 3 AZN Bonus</h3>
+                        <p style="color:#6B7280; font-size:0.9rem; margin-bottom:1.5rem;">Top up your Misli account with
+                            a 3 AZN bonus credit instantly.</p>
+                        <button class="btn btn-outline"
+                            style="width:100%; margin-top:auto; border-color:#E05D3A; color:#E05D3A;"
+                            onclick="activateReward(this)">Activate for 300 Credits</button>
+                    </div>
+                </div>
+
+                <!-- Bravo -->
+                <div class="reward-card">
+                    <div class="reward-img-container" style="background:#22C55E;"> <!-- Bravo green ish -->
+                        <span class="reward-logo-text" style="color:white; font-style:italic;">Bravo</span>
+                    </div>
+                    <div class="reward-body">
+                        <span class="reward-perk">GROCERY</span>
+                        <h3 style="margin:0 0 0.5rem 0; color:#111827;">Bravo - 5 AZN Off</h3>
+                        <p style="color:#6B7280; font-size:0.9rem; margin-bottom:1.5rem;">Get a 5 AZN discount voucher
+                            for your next purchase at Bravo.</p>
+                        <button class="btn btn-outline"
+                            style="width:100%; margin-top:auto; border-color:#E05D3A; color:#E05D3A;"
+                            onclick="activateReward(this)">Activate for 500 Credits</button>
+                    </div>
+                </div>
+
+                <!-- Decathlon -->
+                <div class="reward-card">
+                    <div class="reward-img-container" style="background:#2563EB;">
+                        <span class="reward-logo-text"
+                            style="color:white; text-transform:uppercase; font-style:italic; font-weight:900;">DECATHLON</span>
+                    </div>
+                    <div class="reward-body">
+                        <span class="reward-perk">SPORTS</span>
+                        <h3 style="margin:0 0 0.5rem 0; color:#111827;">Decathlon - 5 AZN Off</h3>
+                        <p style="color:#6B7280; font-size:0.9rem; margin-bottom:1.5rem;">Enjoy 5 AZN off sports
+                            equipment and apparel at Decathlon.</p>
+                        <button class="btn btn-outline"
+                            style="width:100%; margin-top:auto; border-color:#E05D3A; color:#E05D3A;"
+                            onclick="activateReward(this)">Activate for 500 Credits</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = localStorage.getItem('mergen_user');
+            if (user) {
+                try {
+                    const u = JSON.parse(user);
+                    const name = u.email ? u.email.split('@')[0] : "Member";
+                    const displayName = name.charAt(0).toUpperCase() + name.slice(1);
+                    if (document.getElementById('sidebar-username')) document.getElementById('sidebar-username').innerText = displayName;
+                    if (document.getElementById('avatar-initial')) document.getElementById('avatar-initial').innerText = displayName.charAt(0);
+                } catch (e) { }
+            }
+
+            // Bell Logic
+            const bell = document.getElementById('notification-bell');
+            const dropdown = document.getElementById('notification-dropdown');
+            if (bell && dropdown) {
+                bell.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                });
+                document.addEventListener('click', () => { dropdown.style.display = 'none'; });
+            }
+        });
+
+        function activateReward(btn) {
+            btn.innerText = "Activating...";
+            setTimeout(() => {
+                btn.innerText = "Code Sent to Email";
+                btn.disabled = true;
+                btn.style.background = "#EFF6FF";
+                btn.style.color = "#2563EB";
+                btn.style.borderColor = "transparent";
+                alert("Reward activated! We've sent the redemption code to your registered email.");
+            }, 1500);
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+<script src="js/supabase-config.js"></script></body>
+
+</html>

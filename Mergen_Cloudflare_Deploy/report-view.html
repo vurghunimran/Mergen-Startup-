@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Report | Mergen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+        }
+
+        .bar-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .bar-bg {
+            height: 12px;
+            background: #F3F4F6;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: var(--color-primary);
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <!-- Header Injected -->
+
+        <div class="dashboard-content" style="padding: 2rem 5%; background: #F9FAFB; min-height: 80vh;">
+
+            <div style="margin-bottom: 2rem;">
+                <a href="client-dashboard.html" class="btn btn-ghost btn-small">← Back to Dashboard</a>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h1>Gen Z Beverage Preferences - Report</h1>
+                <button class="btn btn-outline btn-medium">Export CSV</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+
+                <div class="chart-container">
+                    <h3 style="margin-bottom: 1.5rem;">Preference Breakdown</h3>
+
+                    <div class="bar-group">
+                        <div class="bar-label">
+                            <span>Plant-Based Alternatives</span>
+                            <span>68%</span>
+                        </div>
+                        <div class="bar-bg">
+                            <div class="bar-fill" style="width: 68%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="bar-group">
+                        <div class="bar-label">
+                            <span>Traditional Dairy</span>
+                            <span>22%</span>
+                        </div>
+                        <div class="bar-bg">
+                            <div class="bar-fill" style="width: 22%; background: #9CA3AF;"></div>
+                        </div>
+                    </div>
+
+                    <div class="bar-group">
+                        <div class="bar-label">
+                            <span>None / Other</span>
+                            <span>10%</span>
+                        </div>
+                        <div class="bar-bg">
+                            <div class="bar-fill" style="width: 10%; background: #E5E7EB;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3 style="margin-bottom: 1rem;">Key Insight</h3>
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem;">
+                        68%</div>
+                    <p style="color: #6B7280; line-height: 1.6;">
+                        of Gen Z respondents prefer plant-based milk alternatives. The primary driver cited is
+                        <strong>environmental impact</strong> rather than taste or health.
+                    </p>
+
+                    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #F3F4F6;">
+                        <div style="font-size: 0.9rem; color: #9CA3AF; margin-bottom: 0.5rem;">TOP REASON</div>
+                        <div style="font-weight: 600;">Sustainability Concern</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer Injected -->
+    </div>
+
+    <script src="js/components.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+<script src="js/supabase-config.js"></script></body>
+
+</html>

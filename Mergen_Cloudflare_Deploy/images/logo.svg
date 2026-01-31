@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="primaryGradient" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF7043" />
+            <stop offset="1" stop-color="#D84315" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Outer Eye Shape (Stylized) -->
+    <path d="M128 40C70 40 20 88 10 128C20 168 70 216 128 216C186 216 236 168 246 128C236 88 186 40 128 40ZM128 196C85 196 46 164 32.5 128C46 92 85 60 128 60C171 60 210 92 223.5 128C210 164 171 196 128 196Z" fill="url(#primaryGradient)" opacity="0.9"/>
+    
+    <!-- Inner Iris/Network Circle -->
+    <circle cx="128" cy="128" r="48" stroke="url(#primaryGradient)" stroke-width="8" fill="none"/>
+    
+    <!-- Network Nodes inside the eye -->
+    <g stroke="white" stroke-width="3" stroke-linecap="round">
+        <circle cx="128" cy="100" r="4" fill="white"/>
+        <circle cx="100" cy="140" r="4" fill="white"/>
+        <circle cx="156" cy="140" r="4" fill="white"/>
+        <circle cx="128" cy="128" r="4" fill="white"/>
+        
+        <line x1="128" y1="100" x2="128" y2="128" />
+        <line x1="128" y1="128" x2="100" y2="140" />
+        <line x1="128" y1="128" x2="156" y2="140" />
+        <line x1="100" y1="140" x2="156" y2="140" />
+    </g>
+</svg>

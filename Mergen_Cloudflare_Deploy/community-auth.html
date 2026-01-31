@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Access | Mergen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body style="background: #0B0E14;">
+
+    <div class="auth-split-wrapper">
+        <!-- Left Panel (Community Theme) -->
+        <div class="auth-left-panel" style="background: linear-gradient(135deg, #1E1B4B 0%, #0B0E14 100%);">
+            <div>
+                <a href="index.html" class="auth-brand" style="text-decoration: none;">
+                    <img src="images/logo.svg" alt="Mergen Logo" style="height: 32px;">
+                    MERGEN
+                </a>
+            </div>
+
+            <div class="auth-hero-text">
+                <div class="secure-badge"
+                    style="background: rgba(99, 102, 241, 0.15); color: #818CF8; border-color: rgba(99, 102, 241, 0.3);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Verified Community
+                </div>
+                <h1>Turn your insights into <span>real rewards</span></h1>
+                <p>Join millions of participants shaping the future of global brands. Share your opinion, influence
+                    products, and get paid instantly.</p>
+            </div>
+
+            <div class="trusted-section">
+                <div class="trusted-label">EARN REWARDS VIA</div>
+                <div class="trusted-logos">
+                    <div class="trust-logo">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="2" y="5" width="20" height="14" rx="2" />
+                            <line x1="2" y1="10" x2="22" y2="10" />
+                        </svg>
+                        PayPal
+                    </div>
+                    <div class="trust-logo">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="3" y="2" width="18" height="20" rx="2" />
+                            <line x1="12" y1="18" x2="12" y2="18" />
+                        </svg>
+                        Gift Cards
+                    </div>
+                    <div class="trust-logo">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M16 8l-8 8" />
+                            <path d="M8 8l8 8" />
+                        </svg>
+                        Crypto
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel (Form) -->
+        <div class="auth-right-panel">
+            <div class="auth-form-header">
+                <h2 id="auth-header-title">Join the Community</h2>
+                <p id="auth-header-desc">Sign up to share your wisdom and get paid.</p>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab" id="tab-login" onclick="switchCommunityTab('login')">Log In</div>
+                <div class="auth-tab active" id="tab-signup" onclick="switchCommunityTab('signup')">Sign Up</div>
+            </div>
+
+            <form id="auth-form">
+                <!-- Name Fields -->
+                <div class="signup-only form-grid">
+                    <div class="dark-input-group">
+                        <label class="dark-label">Name</label>
+                        <input type="text" class="dark-input" placeholder="First Name" name="name">
+                    </div>
+                    <div class="dark-input-group">
+                        <label class="dark-label">Surname</label>
+                        <input type="text" class="dark-input" placeholder="Last Name" name="surname">
+                    </div>
+                </div>
+
+                <!-- Demographics Row 1 -->
+                <div class="signup-only form-grid">
+                    <div class="dark-input-group">
+                        <label class="dark-label">Age</label>
+                        <input type="number" class="dark-input" placeholder="25" name="age">
+                    </div>
+                    <div class="dark-input-group">
+                        <label class="dark-label">Gender</label>
+                        <select class="dark-input" name="gender">
+                            <option value="" disabled selected>Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="signup-only form-grid">
+                    <div class="dark-input-group">
+                        <label class="dark-label">Phone</label>
+                        <input type="tel" class="dark-input" placeholder="+1 (555) 000-0000" name="phone">
+                    </div>
+                    <div class="dark-input-group">
+                        <label class="dark-label">Email</label>
+                        <input type="email" class="dark-input" placeholder="jane@example.com" name="email_signup">
+                    </div>
+                </div>
+
+                <!-- Use this email if Login mode -->
+                <div class="login-only dark-input-group" style="display:none;">
+                    <label class="dark-label">Email Address</label>
+                    <input type="email" id="login-email" class="dark-input" placeholder="jane@example.com">
+                </div>
+
+                <!-- Job & Income -->
+                <div class="signup-only form-grid">
+                    <div class="dark-input-group">
+                        <label class="dark-label">Job Title</label>
+                        <input type="text" class="dark-input" placeholder="Software Engineer" name="job">
+                    </div>
+                    <div class="dark-input-group">
+                        <label class="dark-label">Salary Range</label>
+                        <select class="dark-input" name="salary">
+                            <option value="" disabled selected>Select Range</option>
+                            <option value="0-25k">Under $25k</option>
+                            <option value="25k-50k">$25k - $50k</option>
+                            <option value="50k-100k">$50k - $100k</option>
+                            <option value="100k+">$100k+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="signup-only form-grid">
+                    <div class="dark-input-group">
+                        <label class="dark-label">Family Status</label>
+                        <select class="dark-input" name="family">
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="divorced">Divorced</option>
+                        </select>
+                    </div>
+                    <div class="dark-input-group">
+                        <label class="dark-label">Car Count</label>
+                        <input type="number" class="dark-input" placeholder="0" name="cars">
+                    </div>
+                </div>
+
+                <div class="signup-only dark-input-group">
+                    <label class="dark-label">Region</label>
+                    <input type="text" class="dark-input" placeholder="New York, USA" name="region">
+                </div>
+
+                <div class="signup-only dark-input-group">
+                    <label class="dark-label">Interests</label>
+                    <input type="text" class="dark-input" placeholder="Tech, Gaming, Travel..." name="interests">
+                </div>
+
+                <!-- Password (Common) -->
+                <div class="dark-input-group">
+                    <label class="dark-label">Password</label>
+                    <input type="password" class="dark-input" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn btn-auth-action"
+                    style="background: linear-gradient(90deg, #6366F1 0%, #8B5CF6 100%);">Join Community →</button>
+            </form>
+
+            <div class="auth-bottom-link">
+                <span id="footer-text">Already have an account?</span>
+                <a href="#" onclick="switchCommunityTab('login'); return false;">Log In</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const mode = params.get('mode') || 'signup';
+            switchCommunityTab(mode);
+            
+            // Handle Submit
+             document.getElementById('auth-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Simple logic to grab email based on mode
+                let email = document.querySelector('input[name="email_signup"]').value;
+                if(document.getElementById('tab-login').classList.contains('active')) {
+                     email = document.getElementById('login-email').value;
+                }
+                
+                localStorage.setItem('mergen_user', JSON.stringify({ email: email || 'user@example.com', type: 'community' }));
+                
+                 // Simulate loading
+                const btn = document.getElementById('submit-btn');
+                btn.innerText = 'Verifying...';
+                btn.style.opacity = '0.7';
+
+                setTimeout(() => {
+                    window.location.href = 'community-dashboard.html';
+                }, 1000);
+            });
+        });
+
+        function switchCommunityTab(mode) {
+            const isLogin = mode === 'login';
+    
+            // Header Text
+            const headerTitle = document.getElementById('auth-header-title');
+            const headerDesc = document.getElementById('auth-header-desc');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (isLogin) {
+                headerTitle.innerText = "Welcome back";
+                headerDesc.innerText = "Log in to answer surveys and earn rewards.";
+                submitBtn.innerText = "Log In";
+                
+                // Toggle Fields
+                document.querySelectorAll('.signup-only').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.login-only').forEach(el => el.style.display = 'block');
+                
+                // Update Tabs
+                document.getElementById('tab-login').classList.add('active');
+                document.getElementById('tab-signup').classList.remove('active');
+            } else {
+                headerTitle.innerText = "Join the Community";
+                headerDesc.innerText = "Sign up to share your wisdom and get paid.";
+                submitBtn.innerText = "Join Community →";
+                
+                // Toggle Fields
+                document.querySelectorAll('.login-only').forEach(el => el.style.display = 'none');
+                 document.querySelectorAll('.signup-only').forEach(el => {
+                    if(el.classList.contains('form-grid')) {
+                        el.style.display = 'grid';
+                    } else {
+                        el.style.display = 'block';
+                    }
+                });
+
+                // Update Tabs
+                document.getElementById('tab-login').classList.remove('active');
+                document.getElementById('tab-signup').classList.add('active');
+            }
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+<script src="js/supabase-config.js"></script></body>
+
+</html>

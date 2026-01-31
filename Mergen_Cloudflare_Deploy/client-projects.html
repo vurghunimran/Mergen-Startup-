@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | Mergen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="js/theme.js"></script>
+    <style>
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .projects-filter-bar {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            /* overflow: hidden; Removed to allow dropdowns */
+            border: 1px solid #E5E7EB;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            /* Ensure stacking context control */
+        }
+
+        .project-card.z-active {
+            z-index: 50;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 160px;
+            background: #F3F4F6;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px 16px 0 0;
+            /* Rounded top corners */
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .status-completed {
+            background: #DCFCE7;
+            color: #166534;
+        }
+
+        .status-progress {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #6B7280;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #F3F4F6;
+        }
+
+        .progress-container {
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #EFF6FF;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #EA580C;
+            border-radius: 3px;
+        }
+
+        .create-new-card {
+            background: white;
+            border-radius: 16px;
+            border: 2px dashed #E5E7EB;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            /* Match approximate height of other cards */
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .create-new-card:hover {
+            border-color: #EA580C;
+            background: #FFF7ED;
+        }
+    </style>
+</head>
+
+<body style="background: #F8F9FA;">
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="sidebar-logo">
+                <img src="images/logo.svg" alt="Mergen Logo">
+                MERGEN
+            </a>
+
+            <nav class="sidebar-nav">
+                <a href="client-dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="client-projects.html" class="nav-link active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    My Projects
+                </a>
+                <a href="client-analytics.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    Analytics
+                </a>
+                <a href="client-settings.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                        </path>
+                    </svg>
+                    Settings
+                </a>
+            </nav>
+
+            <div class="sidebar-user">
+                <div class="user-avatar" id="avatar-initial" style="background: #E0E7FF; color: #4338CA;">C</div>
+                <div class="user-info">
+                    <span class="user-name" id="sidebar-username">Client User</span>
+                    <span class="user-badge">Enterprise Account</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Top Search Header -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <div style="position: relative; width: 100%; max-width: 400px;">
+                    <svg style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #9CA3AF;"
+                        width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" placeholder="Search projects..."
+                        style="width: 100%; padding: 0.75rem 1rem 0.75rem 3rem; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 0.95rem; outline: none;">
+                </div>
+                <div style="display:flex; align-items:center; gap:1rem;">
+                    <a href="create-survey.html" class="btn btn-primary btn-medium">+ New Project</a>
+                    <!-- Notification Bell -->
+                    <div id="notification-bell" style="position:relative; cursor:pointer;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <div
+                            style="position:absolute; top:0; right:2px; width:8px; height:8px; background:#EF4444; border-radius:50%; border:2px solid white;">
+                        </div>
+
+                        <!-- Dropdown -->
+                        <div id="notification-dropdown"
+                            style="display:none; position:absolute; top: 120%; right: 0; width: 320px; background: white; border: 1px solid #E5E7EB; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-radius: 12px; z-index: 100; overflow:hidden;">
+                            <div
+                                style="padding: 1rem; border-bottom: 1px solid #F3F4F6; font-weight: 700; color: #111827; display: flex; justify-content: space-between;">
+                                <span>Notifications</span>
+                                <span style="font-size: 0.75rem; color: #E05D3A; cursor: pointer;">Mark all read</span>
+                            </div>
+                            <div class="notification-list" style="max-height: 300px; overflow-y: auto;">
+                                <!-- Item 1: Finished -->
+                                <div class="notif-item"
+                                    style="padding: 1rem; border-bottom: 1px solid #F3F4F6; display: flex; gap: 0.75rem; align-items: start; transition: background 0.2s;">
+                                    <div
+                                        style="width: 8px; height: 8px; background: #10B981; border-radius: 50%; margin-top: 6px; flex-shrink: 0;">
+                                    </div>
+                                    <div>
+                                        <p style="margin: 0; font-size: 0.9rem; color: #111827; font-weight: 500;">
+                                            Survey Finished</p>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: #6B7280;">'Gen-Z
+                                            Coffee' has reached its target of 1,200 respondents.</p>
+                                        <span
+                                            style="font-size: 0.7rem; color: #9CA3AF; display: block; margin-top: 0.5rem;">2
+                                            mins ago</span>
+                                    </div>
+                                </div>
+                                <!-- Item 2: On Progress -->
+                                <div class="notif-item"
+                                    style="padding: 1rem; border-bottom: 1px solid #F3F4F6; display: flex; gap: 0.75rem; align-items: start; transition: background 0.2s;">
+                                    <div
+                                        style="width: 8px; height: 8px; background: #F59E0B; border-radius: 50%; margin-top: 6px; flex-shrink: 0;">
+                                    </div>
+                                    <div>
+                                        <p style="margin: 0; font-size: 0.9rem; color: #111827; font-weight: 500;">
+                                            Milestone Reached</p>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: #6B7280;">'Sustainable
+                                            Fashion' is 50% complete.</p>
+                                        <span
+                                            style="font-size: 0.7rem; color: #9CA3AF; display: block; margin-top: 0.5rem;">1
+                                            hour ago</span>
+                                    </div>
+                                </div>
+                                <!-- Item 3: Declined/Alert -->
+                                <div class="notif-item"
+                                    style="padding: 1rem; border-bottom: 1px solid #F3F4F6; display: flex; gap: 0.75rem; align-items: start; transition: background 0.2s;">
+                                    <div
+                                        style="width: 8px; height: 8px; background: #EF4444; border-radius: 50%; margin-top: 6px; flex-shrink: 0;">
+                                    </div>
+                                    <div>
+                                        <p style="margin: 0; font-size: 0.9rem; color: #111827; font-weight: 500;">
+                                            Payment Declined</p>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: #6B7280;">Your
+                                            scheduled payment for 'AI Education' failed.</p>
+                                        <span
+                                            style="font-size: 0.7rem; color: #9CA3AF; display: block; margin-top: 0.5rem;">5
+                                            hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="padding: 0.75rem; text-align: center; border-top: 1px solid #F3F4F6;">
+                                <a href="#"
+                                    style="font-size: 0.85rem; color: #E05D3A; font-weight: 600; text-decoration: none;">View
+                                    All Notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-header">
+                <h1 style="font-size: 1.8rem; font-weight: 800; color: #111827; margin:0;">My Projects</h1>
+                <div class="projects-filter-bar" style="position:relative;">
+                    <button class="btn btn-outline btn-small" id="filter-btn"
+                        style="background: var(--color-surface); color: var(--color-text);">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" style="margin-right:0.5rem;">
+                            <line x1="4" y1="21" x2="4" y2="14"></line>
+                            <line x1="4" y1="10" x2="4" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="3"></line>
+                            <line x1="20" y1="21" x2="20" y2="16"></line>
+                            <line x1="20" y1="12" x2="20" y2="3"></line>
+                            <line x1="1" y1="14" x2="7" y2="14"></line>
+                            <line x1="9" y1="8" x2="15" y2="8"></line>
+                            <line x1="17" y1="16" x2="23" y2="16"></line>
+                        </svg>
+                        Filter
+                    </button>
+                    <!-- Filter Dropdown -->
+                    <div id="filter-dropdown"
+                        style="display:none; position:absolute; top: 110%; left:0; background: var(--color-surface); border: 1px solid var(--color-border); box-shadow: var(--shadow-lg); border-radius: 8px; width: 150px; z-index: 50;">
+                        <div class="filter-option" onclick="filterProjects('latest')"
+                            style="padding: 0.75rem 1rem; cursor:pointer; font-size:0.9rem; color:var(--color-text);">
+                            Latest</div>
+                        <div class="filter-option" onclick="filterProjects('oldest')"
+                            style="padding: 0.75rem 1rem; cursor:pointer; font-size:0.9rem; color:var(--color-text);">
+                            Oldest</div>
+                        <div class="filter-option" onclick="filterProjects('active')"
+                            style="padding: 0.75rem 1rem; cursor:pointer; font-size:0.9rem; color:var(--color-text);">
+                            Active</div>
+                        <div class="filter-option" onclick="filterProjects('completed')"
+                            style="padding: 0.75rem 1rem; cursor:pointer; font-size:0.9rem; color:var(--color-text);">
+                            Completed</div>
+                    </div>
+
+                    <button class="btn btn-outline btn-small"
+                        style="background: var(--color-surface); color: var(--color-text);">Recently Updated</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Project Grid -->
+            <div id="projects-grid" class="projects-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
+                <!-- Create New Card is always present -->
+                <a href="create-survey.html" class="create-new-card" style="text-decoration: none;">
+                    <div
+                        style="width: 60px; height: 60px; background: #F3F4F6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 style="color: var(--color-text); margin:0 0 0.5rem 0;">Start New Project</h3>
+                    <p style="color: var(--color-text-light); font-size: 0.9rem; padding: 0 1rem;">Launch a new
+                        AI-powered survey and connect with your audience.</p>
+                    <span class="btn btn-primary btn-medium" style="margin-top: 1.5rem;">Create Survey</span>
+                </a>
+            </div>
+
+            <!-- Empty State if only create card exists is handled by grid flow automatically, but we might want a message if absolutely 0 surveys -->
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script>
+        // JS for Projects Page specifically
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProjects('latest'); // Default sort
+
+            // Toggle Filter
+            const filterBtn = document.getElementById('filter-btn');
+            const filterDrop = document.getElementById('filter-dropdown');
+            if (filterBtn && filterDrop) {
+                filterBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    filterDrop.style.display = filterDrop.style.display === 'block' ? 'none' : 'block';
+                });
+                // Close click outside
+                document.addEventListener('click', () => {
+                    filterDrop.style.display = 'none';
+                });
+            }
+
+            // Close card menus
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.card-menu-container')) {
+                    document.querySelectorAll('.card-menu-dropdown').forEach(el => el.style.display = 'none');
+                }
+            });
+        });
+
+        function filterProjects(criteria) {
+            loadProjects(criteria);
+        }
+
+        function loadProjects(filter) {
+            const grid = document.getElementById('projects-grid');
+            // Remove existing projects but keep the "Create New" card
+            // Helper to get Create Card HTML relative to current state or just re-create it
+            // Ideally we re-render neatly.
+
+            const createCardHTML = `
+                <a href="create-survey.html" class="create-new-card" style="text-decoration: none;">
+                    <div style="width: 60px; height: 60px; background: #F3F4F6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 style="color: var(--color-text); margin:0 0 0.5rem 0;">Start New Project</h3>
+                    <p style="color: var(--color-text-light); font-size: 0.9rem; padding: 0 1rem;">Launch a new AI-powered survey and connect with your audience.</p>
+                    <span class="btn btn-primary btn-medium" style="margin-top: 1.5rem;">Create Survey</span>
+                </a>
+            `;
+
+            grid.innerHTML = ''; // processing...
+
+            const surveysStr = localStorage.getItem('mergen_surveys');
+            let surveys = [];
+            if (surveysStr) surveys = JSON.parse(surveysStr);
+
+            // Filter/Sort Logic
+            if (filter === 'oldest') {
+                surveys.reverse();
+            }
+
+            // Render
+            surveys.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <div class="card-image" style="background: ${getRandomColor()};">
+                        <span class="status-badge status-progress">In Progress</span>
+                         <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="card-body">
+                        <div style="display:flex; justify-content:space-between; position:relative;">
+                            <h3 style="margin:0; font-size: 1.1rem; color: var(--color-text);">${s.title}</h3>
+                            
+                            <div class="card-menu-container">
+                                <button onclick="toggleProjectMenu(event, '${s.id}')" style="border:none; background:transparent; cursor:pointer; color: var(--color-text-light); font-size: 1.2rem; padding: 0 0.5rem;">⋮</button>
+                                <div id="p-menu-${s.id}" class="card-menu-dropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 8px; width: 140px; z-index: 10;">
+                                    <div onclick="deleteProject('${s.id}')" style="padding: 0.75rem 1rem; color: #EF4444; font-size: 0.9rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                                        Delete
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="color:var(--color-text-light); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">${s.description || 'Campaign targeting dynamic demographics.'}</p>
+                        
+                        <div class="progress-container">
+                            <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px; font-weight:600;">
+                                <span style="color:#EA580C;">0% Complete</span>
+                                <span style="color:var(--color-text-light);">0 / ${s.respondents}</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 5%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-meta" style="margin-top:0.5rem; padding-top:0.5rem; border:none;">
+                            <span>LAUNCHED: ${s.date}</span>
+                        </div>
+                        
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 1rem; border-color: #EA580C; color: #EA580C;">Monitor Live</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Re-append Create Card
+            grid.insertAdjacentHTML('beforeend', createCardHTML);
+        }
+
+        function toggleProjectMenu(e, id) {
+            e.stopPropagation();
+
+            // 1. Hide all menus
+            document.querySelectorAll('.card-menu-dropdown').forEach(el => {
+                if (el.id !== `p-menu-${id}`) el.style.display = 'none';
+            });
+
+            // 2. Reset z-index on all cards
+            document.querySelectorAll('.project-card').forEach(el => el.classList.remove('z-active'));
+
+            const menu = document.getElementById(`p-menu-${id}`);
+            if (menu) {
+                const isShowing = (menu.style.display === 'block');
+
+                if (isShowing) {
+                    menu.style.display = 'none';
+                    // No need to keep z-active if closing
+                } else {
+                    menu.style.display = 'block';
+                    // 3. Set z-active on parent card
+                    const parentCard = menu.closest('.project-card');
+                    if (parentCard) parentCard.classList.add('z-active');
+                }
+            }
+        }
+
+        function deleteProject(id) {
+            if (!confirm("Are you sure?")) return;
+            const surveysStr = localStorage.getItem('mergen_surveys');
+            if (surveysStr) {
+                let s = JSON.parse(surveysStr);
+                s = s.filter(i => i.id !== id);
+                localStorage.setItem('mergen_surveys', JSON.stringify(s));
+                loadProjects('latest');
+            }
+        }
+
+        function getRandomColor() {
+            const colors = ['#374151', '#6D8B74', '#4B6587', '#E05D3A'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+<script src="js/supabase-config.js"></script></body>
+
+</html>

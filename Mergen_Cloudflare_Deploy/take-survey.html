@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Survey | Mergen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/take-survey.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body style="background: #F9FAFB;">
+
+    <div class="survey-taker-container">
+        <!-- Header -->
+        <header class="taker-header">
+            <div class="logo-area">
+                <img src="images/logo.svg" alt="Mergen" height="28">
+                <span>MERGEN</span>
+            </div>
+            <div class="progress-area">
+                <div class="progress-label">Question <span id="q-current">1</span> of <span id="q-total">--</span></div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+            <button class="btn-close" onclick="exitSurvey()">✕</button>
+        </header>
+
+        <!-- Main Card -->
+        <main class="question-card-wrapper">
+            <div id="survey-loading" style="text-align:center; padding: 4rem;">
+                <div class="spinner"></div>
+                <p>Loading Survey...</p>
+            </div>
+
+            <div id="question-container" style="display:none;">
+                <div class="question-category" id="q-category">OPINION</div>
+                <h1 class="question-text" id="q-text">Are you satisfied?</h1>
+
+                <div class="options-container" id="options-area">
+                    <!-- Dynamic Options -->
+                </div>
+
+                <div class="navigation-row">
+                    <button class="btn btn-outline" id="btn-prev" disabled>Previous</button>
+                    <button class="btn btn-primary btn-large" id="btn-next">Next →</button>
+                </div>
+            </div>
+
+            <!-- Success State -->
+            <div id="completion-screen" style="display:none; text-align: center;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+                <h2 style="font-size: 2rem; color: #111827; margin-bottom: 1rem;">Survey Completed!</h2>
+                <p style="color: #6B7280; font-size: 1.1rem; margin-bottom: 2rem;">
+                    Thank you for your feedback. You've earned <strong style="color: #059669;">+15 Credits</strong>.
+                </p>
+                <button onclick="exitSurvey()" class="btn btn-primary btn-large">Return to Dashboard</button>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="js/survey-taker.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+<script src="js/supabase-config.js"></script></body>
+
+</html>

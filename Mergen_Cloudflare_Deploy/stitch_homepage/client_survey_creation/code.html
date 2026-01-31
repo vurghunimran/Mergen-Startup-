@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Client Survey Creation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#1e2736",
+                        "surface-border": "#2d3b54",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-[#232f48] bg-white dark:bg-background-dark px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">analytics</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">SurveyConnect</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Templates</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Community</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Help</a>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-slate-200 dark:border-slate-700" data-alt="User profile avatar showing a smiling person" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWiiusAmbFAamak4A9HJDRQDacSkd_AY5whg0narhhsDHtKN5ukEJgUIhgaUbjKtB0-BSssd6hb8wnvUOGL_6MjITsIB1qWtGuX0YvNepDDVBcSWUYenvgh151rXqPN-3eo22MSJswRF3XXzNNU1qnyVlbkZChvhfvmpwXvGpVoYkYv7ssvMm0f5p2Q3BMIBfCp4F1172WR7HeeOb4sALvDOxnCviC7r0RXCjvHjK9AsldDbi5-QLoaFQ7eesIYrZ7mZS1c3rXKx1b");'></div>
+</div>
+</header>
+<div class="layout-container flex h-full grow flex-col max-w-[1440px] mx-auto w-full">
+<!-- Breadcrumbs & Heading Wrapper -->
+<div class="px-6 lg:px-12 py-6 border-b border-slate-200 dark:border-[#232f48] bg-white dark:bg-background-dark">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 mb-4">
+<a class="text-slate-500 dark:text-[#92a4c9] text-sm font-medium leading-normal hover:text-primary" href="#">Home</a>
+<span class="text-slate-500 dark:text-[#92a4c9] text-sm font-medium leading-normal">/</span>
+<a class="text-slate-500 dark:text-[#92a4c9] text-sm font-medium leading-normal hover:text-primary" href="#">Dashboard</a>
+<span class="text-slate-500 dark:text-[#92a4c9] text-sm font-medium leading-normal">/</span>
+<span class="text-slate-900 dark:text-white text-sm font-medium leading-normal">Create Survey</span>
+</div>
+<!-- Page Heading -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-tight">Create New Survey</h1>
+<p class="text-slate-500 dark:text-[#92a4c9] text-base font-normal max-w-2xl">
+                        Define your goals and let our AI draft the perfect questions, or build manually from scratch.
+                    </p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-white dark:bg-surface-dark border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[20px] mr-2">visibility</span>
+                        Preview
+                    </button>
+<button class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/30 hover:bg-blue-600 transition-all">
+                        Finalize Survey
+                    </button>
+</div>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 px-6 lg:px-12 py-8 flex-1">
+<!-- Left Pane: AI Input & Settings -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- AI Panel -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-surface-border p-6 shadow-sm sticky top-24">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined">auto_awesome</span>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">AI Assistant</h3>
+</div>
+<div class="flex flex-col gap-5">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">What do you want to ask?</span>
+<textarea class="w-full resize-none rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-[#101622] text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary min-h-[140px] p-3 text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="e.g., Generate a 5-question survey about customer satisfaction for a coffee shop, focusing on beverage quality and ambiance..."></textarea>
+</label>
+<div class="grid grid-cols-2 gap-4">
+<label class="flex flex-col gap-2">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Tone</span>
+<select class="w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-[#101622] text-slate-900 dark:text-white text-sm p-2.5 focus:border-primary focus:ring-primary">
+<option>Professional</option>
+<option>Friendly</option>
+<option>Academic</option>
+<option>Casual</option>
+</select>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Questions</span>
+<select class="w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-[#101622] text-slate-900 dark:text-white text-sm p-2.5 focus:border-primary focus:ring-primary">
+<option>Auto (5-10)</option>
+<option>Short (3-5)</option>
+<option>Detailed (10+)</option>
+</select>
+</label>
+</div>
+<button class="w-full mt-2 flex items-center justify-center gap-2 rounded-lg bg-primary hover:bg-blue-600 text-white font-bold py-3 transition-all shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">temp_preferences_custom</span>
+                            Generate Questions
+                        </button>
+</div>
+<div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white mb-3">Tips</h4>
+<ul class="text-xs text-slate-500 dark:text-slate-400 space-y-2 list-disc pl-4">
+<li>Be specific about your target audience.</li>
+<li>Mention key metrics you want to measure (e.g., NPS).</li>
+<li>Specify if you need open-ended questions.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Right Pane: Survey Canvas -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Survey Canvas</h2>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-surface-dark px-2 py-1 rounded">3 Questions Drafted</span>
+</div>
+<!-- Questions List -->
+<div class="flex flex-col gap-4">
+<!-- Question Card 1 -->
+<div class="group bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-surface-border p-5 shadow-sm hover:border-primary/50 dark:hover:border-primary/50 transition-colors">
+<div class="flex gap-4">
+<div class="flex flex-col items-center gap-2 pt-1 text-slate-400">
+<span class="material-symbols-outlined cursor-grab hover:text-white">drag_indicator</span>
+<span class="text-xs font-mono font-medium">01</span>
+</div>
+<div class="flex-1 flex flex-col gap-3">
+<div class="flex flex-wrap items-start justify-between gap-3">
+<input class="flex-1 bg-transparent border-none p-0 text-base md:text-lg font-semibold text-slate-900 dark:text-white focus:ring-0 placeholder:text-slate-500" placeholder="Enter question text..." type="text" value="How likely are you to recommend our coffee shop to a friend?"/>
+<div class="flex items-center gap-2">
+<select class="rounded-md border-none bg-slate-100 dark:bg-[#101622] text-xs font-medium text-slate-700 dark:text-slate-300 py-1.5 pl-3 pr-8 focus:ring-1 focus:ring-primary">
+<option>NPS / Rating</option>
+<option>Multiple Choice</option>
+<option>Text Area</option>
+</select>
+<button class="text-slate-400 hover:text-red-500 transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Preview Area for Question Type -->
+<div class="bg-background-light dark:bg-[#101622] rounded-lg p-4 mt-1 border border-dashed border-slate-300 dark:border-slate-700">
+<div class="flex justify-between items-center gap-2 max-w-md mx-auto">
+<button class="size-10 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors text-sm font-medium dark:text-slate-300">1</button>
+<button class="size-10 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors text-sm font-medium dark:text-slate-300">2</button>
+<button class="size-10 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors text-sm font-medium dark:text-slate-300">3</button>
+<button class="size-10 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors text-sm font-medium dark:text-slate-300">4</button>
+<button class="size-10 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors text-sm font-medium dark:text-slate-300">5</button>
+</div>
+<div class="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-2 max-w-md mx-auto px-2">
+<span>Not Likely</span>
+<span>Very Likely</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Question Card 2 -->
+<div class="group bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-surface-border p-5 shadow-sm hover:border-primary/50 dark:hover:border-primary/50 transition-colors">
+<div class="flex gap-4">
+<div class="flex flex-col items-center gap-2 pt-1 text-slate-400">
+<span class="material-symbols-outlined cursor-grab hover:text-white">drag_indicator</span>
+<span class="text-xs font-mono font-medium">02</span>
+</div>
+<div class="flex-1 flex flex-col gap-3">
+<div class="flex flex-wrap items-start justify-between gap-3">
+<input class="flex-1 bg-transparent border-none p-0 text-base md:text-lg font-semibold text-slate-900 dark:text-white focus:ring-0 placeholder:text-slate-500" placeholder="Enter question text..." type="text" value="Which beverages did you order today?"/>
+<div class="flex items-center gap-2">
+<select class="rounded-md border-none bg-slate-100 dark:bg-[#101622] text-xs font-medium text-slate-700 dark:text-slate-300 py-1.5 pl-3 pr-8 focus:ring-1 focus:ring-primary">
+<option>Multiple Choice</option>
+<option>NPS / Rating</option>
+<option>Text Area</option>
+</select>
+<button class="text-slate-400 hover:text-red-500 transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Preview Area for Question Type -->
+<div class="bg-background-light dark:bg-[#101622] rounded-lg p-4 mt-1 border border-dashed border-slate-300 dark:border-slate-700 flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<div class="size-4 rounded-full border border-slate-400 dark:border-slate-500"></div>
+<input class="bg-transparent border-b border-transparent hover:border-slate-600 focus:border-primary text-sm text-slate-700 dark:text-slate-300 w-full focus:ring-0 p-0" type="text" value="Hot Coffee"/>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-4 rounded-full border border-slate-400 dark:border-slate-500"></div>
+<input class="bg-transparent border-b border-transparent hover:border-slate-600 focus:border-primary text-sm text-slate-700 dark:text-slate-300 w-full focus:ring-0 p-0" type="text" value="Iced Coffee / Cold Brew"/>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-4 rounded-full border border-slate-400 dark:border-slate-500"></div>
+<input class="bg-transparent border-b border-transparent hover:border-slate-600 focus:border-primary text-sm text-slate-700 dark:text-slate-300 w-full focus:ring-0 p-0" type="text" value="Tea"/>
+</div>
+<button class="text-xs text-primary font-medium text-left mt-1 hover:underline">+ Add Option</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Question Card 3 -->
+<div class="group bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-surface-border p-5 shadow-sm hover:border-primary/50 dark:hover:border-primary/50 transition-colors">
+<div class="flex gap-4">
+<div class="flex flex-col items-center gap-2 pt-1 text-slate-400">
+<span class="material-symbols-outlined cursor-grab hover:text-white">drag_indicator</span>
+<span class="text-xs font-mono font-medium">03</span>
+</div>
+<div class="flex-1 flex flex-col gap-3">
+<div class="flex flex-wrap items-start justify-between gap-3">
+<input class="flex-1 bg-transparent border-none p-0 text-base md:text-lg font-semibold text-slate-900 dark:text-white focus:ring-0 placeholder:text-slate-500" placeholder="Enter question text..." type="text" value="Do you have any other feedback for us?"/>
+<div class="flex items-center gap-2">
+<select class="rounded-md border-none bg-slate-100 dark:bg-[#101622] text-xs font-medium text-slate-700 dark:text-slate-300 py-1.5 pl-3 pr-8 focus:ring-1 focus:ring-primary">
+<option>Text Area</option>
+<option>Multiple Choice</option>
+<option>NPS / Rating</option>
+</select>
+<button class="text-slate-400 hover:text-red-500 transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Preview Area for Question Type -->
+<div class="bg-background-light dark:bg-[#101622] rounded-lg p-4 mt-1 border border-dashed border-slate-300 dark:border-slate-700">
+<div class="w-full h-16 rounded border border-slate-300 dark:border-slate-600 bg-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Manually Button -->
+<button class="flex items-center justify-center gap-2 w-full py-4 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl text-slate-500 dark:text-slate-400 hover:border-primary hover:text-primary hover:bg-slate-50 dark:hover:bg-surface-dark/50 transition-all group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">add_circle</span>
+<span class="font-medium">Add Question Manually</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

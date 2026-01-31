@@ -1,0 +1,195 @@
+:root {
+    /* Colors - Light Mode (Default) */
+    --color-primary: #E05D3A;
+    /* Burnt Orange */
+    --color-primary-hover: #C54A2A;
+    --color-secondary: #5C6BC0;
+    --color-text: #1F2937;
+    --color-text-light: #6B7280;
+    --color-background: #FFF9F5;
+    /* Cream/Peach background */
+    --color-surface: #FFFFFF;
+    --color-border: #E5E7EB;
+    --color-dark: #0E121E;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+    --color-text: #F3F4F6;
+    --color-text-light: #9CA3AF;
+    --color-background: #0B0E14;
+    /* Deep Dark */
+    --color-surface: #111827;
+    /* Dark Gray Surface */
+    --color-border: #374151;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    /* Revert texture for dark mode or specific overlay */
+}
+
+/* Global Styles */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    /* transition for mode switch */
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+}
+
+body.dark-mode {
+    background-image: none;
+    /* Remove light texture */
+}
+
+/* Applying variables to common elements to ensure switch works */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    /* Keep brand color */
+    margin-bottom: 3rem;
+    padding: 0 0.5rem;
+    text-decoration: none;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background: var(--color-background);
+    /* Subtle bg change */
+    color: var(--color-text);
+}
+
+.nav-link.active {
+    background: #FFF7ED;
+    /* Keep brand tint or adjust for dark */
+    color: var(--color-primary);
+}
+
+.dark-mode .nav-link.active {
+    background: rgba(224, 93, 58, 0.15);
+    /* Dark mode active tint */
+    color: var(--color-primary);
+}
+
+.nav-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar-user {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.user-badge {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+}
+
+/* Dashboard Main */
+.dashboard-main {
+    flex: 1;
+    padding: 2.5rem 3rem;
+    overflow-y: auto;
+    margin-left: 0;
+    /* Reset style.css margin */
+}
+
+/* Cards & Surfaces */
+.stat-card,
+.chart-card,
+.project-card,
+.settings-section {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: background 0.3s, border-color 0.3s;
+}
+
+/* Headings colors update */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-text);
+}
+
+/* Inputs in Dark Mode */
+.form-input,
+.form-textarea,
+select {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+/* Specific Utilities handled dynamically */

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Survey | Mergen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/create-survey.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <!-- Header Injected -->
+
+        <div class="dashboard-content" style="padding: 2rem 5%; background: #F9FAFB; min-height: 100vh;">
+
+            <div class="create-survey-header">
+                <h1>Create New Survey</h1>
+                <p>Configure your target audience and survey parameters.</p>
+            </div>
+
+            <!-- Stepper -->
+            <div class="stepper-container" style="margin-top: 0; margin-bottom: 3rem;">
+                <div class="step active">
+                    <div class="step-circle">1</div>
+                    <span>DEFINE</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-circle">2</div>
+                    <span>GENERATE</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-circle">3</div>
+                    <span>REVIEW</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-circle">4</div>
+                    <span>PAYMENT</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-circle">5</div>
+                    <span>LAUNCH</span>
+                </div>
+            </div>
+
+            <!-- STEP 1: DEFINE -->
+            <div id="step-1" class="step-content">
+                <div class="create-survey-grid">
+                    <!-- Left Column -->
+                    <div class="survey-form-col">
+
+                        <!-- Target Audience -->
+                        <div class="form-section">
+                            <div class="section-header-row">
+                                <div class="section-icon icon-users is-animated-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" stroke-opacity="0.5"></circle>
+                                        <path d="M2 12h20"></path>
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h3>Target Audience</h3>
+                            </div>
+
+                            <!-- Survey Title (NEW) -->
+                            <div class="form-group" style="margin-bottom: 2rem;">
+                                <label
+                                    style="font-size: 0.9rem; font-weight: 600; color: #374151; margin-bottom: 0.5rem; display: block;">
+                                    Survey Title
+                                </label>
+                                <input type="text" id="survey-title-input" class="input-field"
+                                    placeholder="e.g. Q3 Customer Satisfaction Pulse"
+                                    style="font-size: 1.1rem; padding: 0.8rem 1rem; border-color: #E5E7EB;">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label-row">
+                                        Age Range
+                                        <span class="range-badge" id="age-display">18 - 65+</span>
+                                    </label>
+                                    <!-- Dual Slider Container -->
+                                    <div class="dual-range-container">
+                                        <div class="slider-track" id="age-track"></div>
+                                        <input type="range" id="age-slider-min" min="18" max="80" value="25"
+                                            class="dual-range">
+                                        <input type="range" id="age-slider-max" min="18" max="80" value="55"
+                                            class="dual-range">
+                                    </div>
+                                    <div class="range-labels">
+                                        <span>18</span><span>30</span><span>45</span><span>60</span><span>80+</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Financial Situation</label>
+                                    <select class="input-field styled-select" id="financial-select">
+                                        <option value="low">Average ($25k - $50k)</option>
+                                        <option value="mid" selected>Upper Mid ($75k - $150k)</option>
+                                        <option value="high">High Net Worth ($150k+)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <select class="input-field styled-select" id="location-select">
+                                        <option value="global">Global (All Countries)</option>
+                                        <option value="us">United States</option>
+                                        <option value="eu">Europe</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Interests</label>
+                                    <div class="tags-input-container" id="interests-container">
+                                        <!-- Populated via JS -->
+                                        <span class="tag-pill-add" id="add-interest-btn">+ Add</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Toggles Row -->
+                            <div class="toggles-grid">
+                                <div class="toggle-card">
+                                    <span>Homeowners</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="toggle-homeowners" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="toggle-card">
+                                    <span>Parents</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="toggle-parents">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="toggle-card">
+                                    <span>Business Owners</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="toggle-business">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scope -->
+                        <div class="form-section">
+                            <div class="section-header-row">
+                                <div class="section-icon icon-settings">⚙️</div>
+                                <h3>Survey Scope</h3>
+                            </div>
+                            <div class="form-row" style="align-items: center;">
+                                <div class="form-group">
+                                    <label>Number of Questions (5-25)</label>
+                                    <div class="counter-control">
+                                        <button class="counter-btn" id="btn-dec-q">−</button>
+                                        <input type="text" class="counter-val" id="q-count" value="10" readonly>
+                                        <button class="counter-btn" id="btn-inc-q">+</button>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="flex: 2;">
+                                    <label class="form-label-row">
+                                        Required Respondents
+                                        <span class="highlight-text-orange" id="resp-display">500</span>
+                                    </label>
+                                    <!-- Updated Range: 50 to 1500 -->
+                                    <input type="range" id="resp-slider" min="50" max="1500" step="50" value="500"
+                                        class="custom-range-orange">
+                                    <div class="range-labels">
+                                        <span>50</span><span style="margin-left:auto;">1,500</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- AI -->
+                        <div class="form-section">
+                            <div class="section-header-row">
+                                <div class="section-icon icon-ai">✨</div>
+                                <h3>AI Assistant</h3>
+                            </div>
+                            <p class="ai-desc">Describe your survey goal and our AI will draft scientifically validated
+                                questions for you.</p>
+                            <textarea class="ai-textarea" id="ai-prompt-input"
+                                placeholder="Example: I want to understand why Gen Z users are switching from traditional banking apps to neobanks in the European market..."></textarea>
+
+                            <div style="margin-top: 1rem; display: none;" id="ai-api-key-container">
+                                <label style="font-size: 0.8rem; color: #6B7280;">Enter your Gemini API Key (for
+                                    demo):</label>
+                                <input type="password" id="gemini-api-key" class="input-field" placeholder="AIzaSy...">
+                            </div>
+                        </div>
+
+                        <button id="btn-generate" class="btn btn-primary btn-full btn-large btn-glow"
+                            style="margin-top: 2rem;">
+                            Generate Questions 🚀
+                        </button>
+                    </div>
+                    <!-- Summary Column Removed -->
+                </div>
+            </div>
+
+            <!-- STEP 2: LOADING -->
+            <div id="step-2" class="step-content" style="display: none; text-align: center; padding: 4rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">✨ AI is crafting your survey...</h2>
+                <p style="color: #6B7280;">Analyzing audience demographics and optimal question patterns.</p>
+                <!-- Spinner could go here -->
+            </div>
+
+            <!-- STEP 3: REVIEW / CANVAS -->
+            <div id="step-3" class="step-content" style="display: none; width: 95%; max-width: 1400px; margin: 0 auto;">
+
+                <div class="canvas-grid">
+                    <!-- Left: AI Assistant -->
+                    <div class="ai-assistant-sidebar">
+                        <div class="ai-header">
+                            <div class="ai-icon-box">✨</div>
+                            <h3>AI Assistant</h3>
+                        </div>
+
+                        <label class="ai-label">WHAT DO YOU WANT TO ASK?</label>
+                        <textarea class="ai-input-dark" id="ai-refine-prompt"
+                            placeholder="e.g., Generate a 5-question survey about customer satisfaction for a coffee shop..."></textarea>
+
+                        <div class="ai-controls-row">
+                            <div style="flex:1;">
+                                <label class="ai-label">TONE</label>
+                                <select class="ai-select-dark">
+                                    <option>Professional</option>
+                                    <option>Casual</option>
+                                    <option>Friendly</option>
+                                </select>
+                            </div>
+                            <div style="width: 80px;">
+                                <label class="ai-label">QUESTIONS</label>
+                                <select class="ai-select-dark" id="refine-q-count">
+                                    <option>Auto</option>
+                                    <option>5</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button id="btn-refine-ai" class="btn btn-primary btn-full" style="margin-top: 1.5rem;">
+                            ✨ Generate Questions
+                        </button>
+
+                        <div class="ai-tips">
+                            <h4 class="ai-label">TIPS</h4>
+                            <ul>
+                                <li>Be specific about your audience.</li>
+                                <li>Mention key metrics (e.g., NPS).</li>
+                                <li>Keep questions neutral.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Center: Canvas -->
+                    <div class="survey-canvas">
+                        <div class="canvas-header">
+                            <div>
+                                <h3>Survey Canvas</h3>
+                                <span class="draft-badge"><span id="canvas-count">0</span> QUESTIONS DRAFTED</span>
+                            </div>
+                            <button id="btn-proceed-payment" class="btn btn-primary shadow-orange btn-launch-mega">
+                                Proceed to Payment →
+                            </button>
+                        </div>
+
+                        <div id="canvas-questions-list">
+                            <!-- Questions Rendered Here -->
+                        </div>
+
+                        <!-- Add Manually -->
+                        <div class="add-manual-box" id="btn-add-manual">
+                            <span>+</span> Add Question Manually
+                        </div>
+
+                        <!-- Floating Actions -->
+                        <div class="floating-actions">
+                            <button class="btn btn-white-outline" id="btn-preview-draft">
+                                👁️ Preview Draft
+                            </button>
+                            <button class="btn btn-white-outline" id="btn-save-draft">
+                                💾 Save Draft
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Summary (Removed) -->
+
+                </div>
+            </div>
+
+            <!-- STEP 4: PAYMENT -->
+            <div id="step-4" class="step-content" style="display: none; max-width: 960px; margin: 0 auto;">
+                <h2 style="margin-bottom: 2rem; color: #111827;">Checkout & Payment</h2>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+
+                    <!-- Order Summary -->
+                    <div style="background: white; border-radius: 16px; padding: 2rem; border: 1px solid #E5E7EB;">
+                        <h3 style="margin-top: 0; margin-bottom: 1.5rem; color: #374151;">Order Summary</h3>
+
+                        <div style="margin-bottom: 2rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <span style="color: #6B7280;">Client Type</span>
+                                <span style="font-weight: 600; color: #111827;" id="summ-client-type">SME</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <span style="color: #6B7280;">Number of Questions</span>
+                                <span style="font-weight: 600; color: #111827;" id="summ-q-count">10</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <span style="color: #6B7280;">Target Respondents</span>
+                                <span style="font-weight: 600; color: #111827;" id="summ-resp-count">500</span>
+                            </div>
+                            <div style="height: 1px; background: #E5E7EB; margin: 1.5rem 0;"></div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-size: 1.1rem; font-weight: 700; color: #374151;">Total Amount</span>
+                                <span style="font-size: 1.5rem; font-weight: 800; color: #10B981;"
+                                    id="summ-total-price">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div>
+                        <h3 style="margin-top: 0; margin-bottom: 1.5rem; color: #374151;">Payment Method</h3>
+
+                        <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                            <label
+                                style="flex: 1; border: 2px solid #E05D3A; background: #FFF7ED; padding: 1rem; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="radio" name="pay-method" checked>
+                                <span style="font-weight: 600; color: #EA580C;">Credit Card</span>
+                            </label>
+                            <label
+                                style="flex: 1; border: 1px solid #E5E7EB; background: #fff; padding: 1rem; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; opacity: 0.6;">
+                                <input type="radio" name="pay-method" disabled>
+                                <span>Invoice</span>
+                            </label>
+                        </div>
+
+                        <!-- Mock Card Form -->
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid #E5E7EB; margin-bottom: 2rem;">
+                            <div style="margin-bottom: 1rem;">
+                                <label
+                                    style="display: block; font-size: 0.8rem; color: #6B7280; margin-bottom: 0.25rem;">Card
+                                    Number</label>
+                                <input type="text" class="input-field" placeholder="0000 0000 0000 0000"
+                                    style="width: 100%;">
+                            </div>
+                            <div style="display: flex; gap: 1rem;">
+                                <div style="flex: 1;">
+                                    <label
+                                        style="display: block; font-size: 0.8rem; color: #6B7280; margin-bottom: 0.25rem;">Expiry</label>
+                                    <input type="text" class="input-field" placeholder="MM/YY" style="width: 100%;">
+                                </div>
+                                <div style="flex: 1;">
+                                    <label
+                                        style="display: block; font-size: 0.8rem; color: #6B7280; margin-bottom: 0.25rem;">CVC</label>
+                                    <input type="text" class="input-field" placeholder="123" style="width: 100%;">
+                                </div>
+                            </div>
+                            <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+                                <div style="width: 32px; height: 20px; background: #E5E7EB; border-radius: 4px;"></div>
+                                <div style="width: 32px; height: 20px; background: #E5E7EB; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+
+                        <button id="btn-pay-launch" class="btn btn-primary btn-full btn-large shadow-orange">
+                            Process Payment & Launch 🚀
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 5: SUCCESS -->
+            <div id="step-5" class="step-content"
+                style="display: none; text-align: center; padding: 4rem; background: white; border-radius: 20px; max-width: 800px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+
+                <div class="rocket-container">
+                    <img src="images/rocket_launch.png" alt="Rocket Launch" class="rocket-img">
+                    <div class="smoke-particles">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <h2 style="font-size: 2.5rem; font-weight: 800; color: #111827; margin-bottom: 1rem;">Survey Launched
+                    Successfully! 🚀</h2>
+                <p style="color: #6B7280; font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto 3rem;">
+                    Your survey has been sent to <strong style="color: #E05D3A;">1,250 community members</strong>
+                    matching your profile.
+                    Sit back while we gather insights in real-time.
+                </p>
+
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="client-dashboard.html" class="btn btn-primary btn-launch-mega"
+                        style="box-shadow: 0 4px 15px rgba(224, 93, 58, 0.4); text-decoration: none; padding: 1rem 3rem;">
+                        Go to Dashboard
+                    </a>
+                    <button onclick="location.reload()" class="btn btn-white-outline"
+                        style="padding: 1rem 2rem; font-size: 1.1rem; height: auto;">
+                        + Create New Survey
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script src="js/components.js"></script>
+    <script src="js/create-survey.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+</body>
+
+</html>

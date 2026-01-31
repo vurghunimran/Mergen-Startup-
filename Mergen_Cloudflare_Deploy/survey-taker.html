@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Take Survey | Mergen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <!-- Header Injected -->
+
+        <div class="dashboard-content" style="padding: 2rem 5%; background: #F9FAFB; min-height: 80vh;">
+
+            <div id="survey-content"
+                style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 16px; border: 1px solid #E5E7EB;">
+                <div style="margin-bottom: 2rem; border-bottom: 1px solid #E5E7EB; padding-bottom: 1rem;">
+                    <span class="badge" style="margin-bottom: 0.5rem;">Shopping Habits 2024</span>
+                    <h1>Tell us about your shopping habits</h1>
+                    <p style="color: #6B7280;">Estimated time: 5 mins • Reward: $2.50</p>
+                </div>
+
+                <form id="survey-form">
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label class="input-label" style="font-size: 1.1rem; margin-bottom: 0.75rem;">1. How often do
+                            you shop online?</label>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label><input type="radio" name="q1" required> Daily</label>
+                            <label><input type="radio" name="q1"> Weekly</label>
+                            <label><input type="radio" name="q1"> Monthly</label>
+                            <label><input type="radio" name="q1"> Rarely</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label class="input-label" style="font-size: 1.1rem; margin-bottom: 0.75rem;">2. Which platforms
+                            do you prefer? (Select all that apply)</label>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label><input type="checkbox" name="q2"> Amazon</label>
+                            <label><input type="checkbox" name="q2"> eBay</label>
+                            <label><input type="checkbox" name="q2"> Shopify Stores</label>
+                            <label><input type="checkbox" name="q2"> Social Media (TikTok/IG)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label class="input-label" style="font-size: 1.1rem; margin-bottom: 0.75rem;">3. What is your
+                            average monthly spend on clothing?</label>
+                        <input type="text" class="input-field" placeholder="$Amount">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Submit Survey</button>
+                </form>
+            </div>
+
+            <div id="success-message"
+                style="display: none; text-align: center; padding: 4rem; max-width: 600px; margin: 0 auto;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+                <h2>Survey Completed!</h2>
+                <p style="color: #6B7280; font-size: 1.2rem;">$2.50 has been added to your balance.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/components.js"></script>
+    <script src="js/survey-taker.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+<script src="js/supabase-config.js"></script></body>
+
+</html>

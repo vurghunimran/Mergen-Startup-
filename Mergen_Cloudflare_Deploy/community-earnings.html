@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings | Mergen Community</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body style="background: #F8F9FA;">
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="sidebar-logo">
+                <img src="images/logo.svg" alt="Mergen Logo">
+                MERGEN
+            </a>
+
+            <nav class="sidebar-nav">
+                <a href="community-dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="community-my-surveys.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    My Surveys
+                </a>
+                <a href="community-earnings.html" class="nav-link active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    Earnings
+                </a>
+                <a href="community-rewards.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                    </svg>
+                    Rewards
+                </a>
+            </nav>
+
+            <div class="sidebar-user">
+                <div class="user-avatar" id="avatar-initial">A</div>
+                <div class="user-info">
+                    <span class="user-name" id="sidebar-username">Community Member</span>
+                    <span class="user-badge">Elite Member</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <header class="dash-header">
+                <div class="header-title">My Earnings</div>
+                <div class="header-actions">
+                    <!-- Bell -->
+                    <div id="notification-bell" style="position:relative; cursor:pointer;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <div
+                            style="position:absolute; top:0; right:2px; width:8px; height:8px; background:#EF4444; border-radius:50%; border:2px solid white;">
+                        </div>
+                        <!-- Dropdown -->
+                        <div id="notification-dropdown"
+                            style="display:none; position:absolute; top: 120%; right: 0; width: 320px; background: white; border: 1px solid #E5E7EB; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-radius: 12px; z-index: 100; overflow:hidden;">
+                            <div
+                                style="padding: 1rem; border-bottom: 1px solid #F3F4F6; font-weight: 700; color: #111827; display: flex; justify-content: space-between;">
+                                <span>Notifications</span>
+                                <span style="font-size: 0.75rem; color: #E05D3A; cursor: pointer;">Mark all read</span>
+                            </div>
+                            <div class="notification-list" style="max-height: 300px; overflow-y: auto;">
+                                <div style="padding: 1rem; text-align:center; color:#6B7280; font-size:0.9rem;">No new
+                                    notifications</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="welcome-section">
+                <h1>Wallet Overview</h1>
+                <p>Manage your earnings, trust score, and withdrawal options.</p>
+            </div>
+
+            <div class="stats-cards-grid">
+                <!-- Trust Score -->
+                <div class="dash-stat-card">
+                    <div class="trust-circle-wrapper">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path class="circle-bg" stroke="#F3F4F6" stroke-width="3" fill="none"
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path class="circle" stroke="#E05D3A" stroke-width="3" stroke-dasharray="65, 100"
+                                fill="none"
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        </svg>
+                        <div class="trust-info">
+                            <h4>TRUST SCORE</h4>
+                            <h3>Excellent</h3>
+                            <span>Based on your activity</span>
+                        </div>
+                    </div>
+                    <div
+                        style="position: absolute; top: 38%; left: 45px; font-weight: 800; font-size: 1.2rem; color: #111827;">
+                        65%</div>
+                </div>
+
+                <!-- Available Balance -->
+                <div class="dash-stat-card" style="grid-column: span 2;">
+                    <div style="padding: 1rem;">
+                        <h4 style="font-size: 0.85rem; color: #6B7280; font-weight: 600; margin-bottom: 0.5rem;">
+                            AVAILABLE BALANCE</h4>
+                        <div style="display:flex; justify-content:space-between; align-items:end;">
+                            <div style="font-size: 3rem; font-weight: 800; color: #111827; line-height:1;">
+                                $0.00 <span style="font-size: 1.2rem; color: #9CA3AF; font-weight: 600;">USD</span>
+                            </div>
+                            <button id="withdraw-btn" onclick="handleWithdraw()" class="btn btn-primary btn-medium"
+                                style="background:#10B981; border-color:#10B981; opacity: 0.5; cursor: not-allowed;"
+                                disabled>
+                                Withdraw Money
+                            </button>
+                        </div>
+                        <p style="color:#9CA3AF; margin-top:0.5rem; font-size:0.9rem;">Minimum withdrawal amount is
+                            $10.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transaction History -->
+            <div
+                style="margin-top: 2rem; background: white; border-radius: 16px; border: 1px solid #E5E7EB; overflow:hidden;">
+                <div
+                    style="padding: 1.5rem; border-bottom: 1px solid #F3F4F6; display:flex; justify-content:space-between; align-items:center;">
+                    <h3 style="margin:0; font-size: 1.1rem; color: #111827;">Transaction History</h3>
+                    <button
+                        style="background:none; border:none; color:#E05D3A; font-weight:600; cursor:pointer; opacity:0.5;"
+                        disabled>Export
+                        CSV</button>
+                </div>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: #F9FAFB; text-align: left;">
+                            <th style="padding: 1rem 1.5rem; font-size: 0.8rem; color: #6B7280; font-weight: 600;">DATE
+                            </th>
+                            <th style="padding: 1rem 1.5rem; font-size: 0.8rem; color: #6B7280; font-weight: 600;">
+                                DESCRIPTION</th>
+                            <th style="padding: 1rem 1.5rem; font-size: 0.8rem; color: #6B7280; font-weight: 600;">
+                                STATUS</th>
+                            <th
+                                style="padding: 1rem 1.5rem; font-size: 0.8rem; color: #6B7280; font-weight: 600; text-align:right;">
+                                AMOUNT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #F3F4F6;">
+                            <td colspan="4" style="padding: 3rem; text-align: center; color: #9CA3AF;">
+                                No transactions yet. Complete surveys to earn credits.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = localStorage.getItem('mergen_user');
+            if (user) {
+                try {
+                    const u = JSON.parse(user);
+                    const name = u.email ? u.email.split('@')[0] : "Member";
+                    const displayName = name.charAt(0).toUpperCase() + name.slice(1);
+                    if (document.getElementById('sidebar-username')) document.getElementById('sidebar-username').innerText = displayName;
+                    if (document.getElementById('avatar-initial')) document.getElementById('avatar-initial').innerText = displayName.charAt(0);
+                } catch (e) { }
+            }
+            // Bell Logic
+            const bell = document.getElementById('notification-bell');
+            const dropdown = document.getElementById('notification-dropdown');
+            if (bell && dropdown) {
+                bell.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                });
+                document.addEventListener('click', () => { dropdown.style.display = 'none'; });
+            }
+        });
+
+        function handleWithdraw() {
+            const btn = document.getElementById('withdraw-btn');
+            const amount = 0; // Reset to 0
+            const withdrawAmount = prompt(`Available Balance: $${amount}\n\nEnter amount to withdraw:`);
+
+            if (withdrawAmount) {
+                const val = parseFloat(withdrawAmount);
+                if (isNaN(val) || val <= 0) {
+                    alert('Please enter a valid amount.');
+                } else if (val > amount) {
+                    alert('Insufficient funds.');
+                } else {
+                    btn.innerText = "Processing...";
+                    btn.disabled = true;
+                    setTimeout(() => {
+                        alert(`Successfully initiated withdrawal of $${val.toFixed(2)} to your linked account.`);
+                        btn.innerText = "Withdraw Money";
+                        btn.disabled = false;
+                    }, 2000);
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+</body>
+
+</html>

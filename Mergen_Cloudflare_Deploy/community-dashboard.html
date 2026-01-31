@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Dashboard | Mergen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body style="background: #F8F9FA;">
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="sidebar-logo">
+                <img src="images/logo.svg" alt="Mergen Logo">
+                MERGEN
+            </a>
+
+            <nav class="sidebar-nav">
+                <a href="community-dashboard.html" class="nav-link active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="community-my-surveys.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    My Surveys
+                </a>
+                <a href="community-earnings.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    Earnings
+                </a>
+                <a href="community-rewards.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                    </svg>
+                    Rewards
+                </a>
+            </nav>
+
+            <div class="sidebar-user">
+                <div class="user-avatar" id="avatar-initial">A</div>
+                <div class="user-info">
+                    <span class="user-name" id="sidebar-username">Alex Morgan</span>
+                    <span class="user-badge">Elite Member</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dash-header">
+                <div class="header-title">Community Dashboard</div>
+                <div class="header-actions">
+
+                    <!-- Notification Bell -->
+                    <div id="notification-bell" style="position:relative; cursor:pointer;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <div
+                            style="position:absolute; top:0; right:2px; width:8px; height:8px; background:#EF4444; border-radius:50%; border:2px solid white;">
+                        </div>
+                        <!-- Dropdown -->
+                        <div id="notification-dropdown"
+                            style="display:none; position:absolute; top: 120%; right: 0; width: 320px; background: white; border: 1px solid #E5E7EB; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-radius: 12px; z-index: 100; overflow:hidden;">
+                            <div
+                                style="padding: 1rem; border-bottom: 1px solid #F3F4F6; font-weight: 700; color: #111827; display: flex; justify-content: space-between;">
+                                <span>Notifications</span>
+                                <span style="font-size: 0.75rem; color: #E05D3A; cursor: pointer;">Mark all read</span>
+                            </div>
+                            <div class="notification-list" style="max-height: 300px; overflow-y: auto;">
+                                <div style="padding: 1rem; text-align:center; color:#6B7280; font-size:0.9rem;">No new
+                                    notifications</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+
+            <!-- Welcome -->
+            <div class="welcome-section">
+                <h1 id="welcome-msg">Welcome back! 👋</h1>
+                <p>Welcome to your personal dashboard.</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-cards-grid">
+                <!-- Trust Score -->
+                <div class="dash-stat-card">
+                    <div class="trust-circle-wrapper">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path class="circle-bg"
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path class="circle" stroke-dasharray="65, 100"
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        </svg>
+                        <div class="trust-info">
+                            <h4>TRUST SCORE</h4>
+                            <h3>Excellent</h3>
+                            <span>Based on 0 response</span>
+                        </div>
+                    </div>
+                    <div
+                        style="position: absolute; top: 38%; left: 45px; font-weight: 800; font-size: 1.2rem; color: #111827;">
+                        65%</div>
+                </div>
+
+                <!-- Available Balance -->
+                <div class="dash-stat-card">
+                    <div class="trust-info">
+                        <h4>AVAILABLE BALANCE</h4>
+                        <div style="font-size: 2.5rem; font-weight: 800; margin: 0.5rem 0;">
+                            $0.00 <span style="font-size: 1rem; color: #9CA3AF; font-weight: 600;">USD</span>
+                        </div>
+                        <a href="community-earnings.html"
+                            style="color: #E05D3A; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.25rem;">
+                            Withdraw Funds →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Lifetime Earnings -->
+                <div class="dash-stat-card">
+                    <div class="trust-info">
+                        <h4>LIFETIME EARNINGS</h4>
+                        <div style="font-size: 2.5rem; font-weight: 800; margin: 0.5rem 0;">
+                            $0.00
+                        </div>
+                        <div
+                            style="color: #10B981; font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.25rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                            +0% since last month
+                        </div>
+                        <div style="position: absolute; right: 1.5rem; top: 1.5rem; opacity: 0.1;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3 21h18v-2H3v2zm9-18c-3.14 0-6 2-6 5.5V17h12V8.5c0-3.5-2.86-5.5-6-5.5zM8 17V8.5C8 6.5 10.5 5 12 5s4 1.5 4 3.5V17H8z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Available Surveys -->
+            <div class="welcome-section">
+                <h1>Available Surveys</h1>
+            </div>
+
+            <!-- Surveys Container -->
+            <div id="available-surveys-container">
+                <!-- Empty State -->
+                <div id="comm-empty-state" class="empty-state"
+                    style="text-align: center; padding: 4rem; background: white; border-radius: 16px; border: 1px dashed #E5E7EB; color: #6B7280;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        style="margin-bottom: 1rem; color: #9CA3AF;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                    <p style="font-size: 1.1rem; font-weight: 500;">There's no available survey right now.</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Check back later for new opportunities matching
+                        your
+                        profile.</p>
+                </div>
+
+                <!-- Dynamic Grid -->
+                <div id="comm-survey-grid"
+                    style="display:none; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
+                    <!-- Injected -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Retrieve User Info from updated parsing logic
+            const userStr = localStorage.getItem('mergen_user');
+            if (userStr) {
+                try {
+                    const user = JSON.parse(userStr);
+                    let displayName = "Community Member";
+                    if (user.email) {
+                        const namePart = user.email.split('@')[0];
+                        displayName = namePart.charAt(0).toUpperCase() + namePart.slice(1);
+                    }
+
+                    if (document.getElementById('welcome-msg'))
+                        document.getElementById('welcome-msg').innerText = `Welcome back, ${displayName}! 👋`;
+                    if (document.getElementById('sidebar-username'))
+                        document.getElementById('sidebar-username').innerText = displayName;
+                    if (document.getElementById('avatar-initial'))
+                        document.getElementById('avatar-initial').innerText = displayName.charAt(0);
+
+                } catch (e) { console.error("Error parsing user data", e); }
+            }
+
+            // LOAD SURVEYS
+            loadAvailableSurveys();
+
+            // Bell Logic
+            const bell = document.getElementById('notification-bell');
+            const dropdown = document.getElementById('notification-dropdown');
+            if (bell && dropdown) {
+                bell.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                });
+                document.addEventListener('click', () => { dropdown.style.display = 'none'; });
+            }
+        });
+
+        function loadAvailableSurveys() {
+            const container = document.getElementById('available-surveys-container');
+            const emptyState = document.getElementById('comm-empty-state');
+            const listGrid = document.getElementById('comm-survey-grid');
+
+            const surveysStr = localStorage.getItem('mergen_surveys');
+
+            if (surveysStr) {
+                try {
+                    const surveys = JSON.parse(surveysStr);
+                    // Filter active surveys
+                    const activeSurveys = surveys.filter(s => s.status === 'Active');
+
+                    if (activeSurveys.length > 0) {
+                        emptyState.style.display = 'none';
+                        listGrid.style.display = 'grid';
+
+                        listGrid.innerHTML = activeSurveys.map(s => `
+                            <div style="background: white; border-radius: 16px; border: 1px solid #E5E7EB; padding: 1.5rem; transition: transform 0.2s;">
+                                <div style="display:flex; justify-content:space-between; margin-bottom: 1rem;">
+                                    <span style="background: #ECFDF5; color: #059669; font-weight: 700; font-size: 0.75rem; padding: 4px 10px; border-radius: 99px;">
+                                        +${s.credits || 15} CREDITS
+                                    </span>
+                                    <span style="color:#9CA3AF; font-size: 0.8rem;">~5 min</span>
+                                </div>
+                                <h3 style="margin:0 0 0.5rem 0; font-size: 1.1rem; color: #111827;">${s.title}</h3>
+                                <p style="color: #6B7280; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem;">
+                                    Help shape future products by sharing your opinion on this topic.
+                                </p>
+                                <a href="take-survey.html?id=${s.id}" class="btn btn-primary btn-full btn-small" style="font-size:0.95rem; text-decoration:none; display:inline-block; text-align:center;">
+                                    Start Survey →
+                                </a>
+                            </div>
+                        `).join('');
+                    } else {
+                        emptyState.style.display = 'block';
+                        listGrid.style.display = 'none';
+                    }
+                } catch (e) { console.error("Error loading surveys", e); }
+            } else {
+                emptyState.style.display = 'block';
+                listGrid.style.display = 'none';
+            }
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+<script src="js/supabase-config.js"></script></body>
+
+</html>

@@ -1,0 +1,360 @@
+.create-survey-header {
+    margin-bottom: 2rem;
+}
+
+.create-survey-header h1 {
+    font-size: 1.75rem;
+    color: #111827;
+}
+
+.create-survey-header p {
+    color: #6B7280;
+}
+
+.create-survey-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+/* Form Sections */
+.form-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #E5E7EB;
+    margin-bottom: 1.5rem;
+}
+
+.section-header-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-icon {
+    width: 32px;
+    height: 32px;
+    background: #FEF3C7;
+    color: #D97706;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.icon-users {
+    background: #FFEDD5;
+    color: #EA580C;
+}
+
+.icon-settings {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.icon-ai {
+    background: linear-gradient(135deg, #FFEDD5, #E0E7FF);
+    color: #4F46E5;
+}
+
+.section-header-row h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+/* Custom Inputs */
+.range-display {
+    background: #FFF7ED;
+    color: var(--color-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    align-self: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.custom-range {
+    width: 100%;
+    accent-color: var(--color-primary);
+    height: 6px;
+    background: #E5E7EB;
+    border-radius: 3px;
+    outline: none;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #9CA3AF;
+    margin-top: 0.25rem;
+}
+
+.tags-input {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #F9FAFB;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+}
+
+.tag {
+    background: #E0E7FF;
+    color: #4F46E5;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.add-tag {
+    cursor: pointer;
+    color: #6B7280;
+    font-weight: bold;
+}
+
+.counter-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    width: max-content;
+}
+
+.counter-input button {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    color: #6B7280;
+}
+
+.counter-input span {
+    padding: 0 1rem;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: center;
+}
+
+.highlight-text {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.ai-desc {
+    font-size: 0.9rem;
+    color: #6B7280;
+    margin-bottom: 1rem;
+}
+
+.ai-textarea {
+    width: 100%;
+    height: 120px;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+    font-family: inherit;
+    resize: none;
+    background: #F9FAFB;
+}
+
+.ai-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: white;
+}
+
+/* Summary Column */
+.summary-card {
+    background: #111827;
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+}
+
+.summary-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.summary-header h3 {
+    font-size: 1.1rem;
+}
+
+.summary-header span {
+    font-size: 0.7rem;
+    color: #9CA3AF;
+    letter-spacing: 0.05em;
+}
+
+.audience-match {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.match-icon {
+    font-size: 1.5rem;
+}
+
+.audience-match p {
+    font-size: 0.8rem;
+    color: #9CA3AF;
+}
+
+.cost-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.cost-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #D1D5DB;
+}
+
+.discount {
+    color: #10B981;
+}
+
+.total-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.total-cost span {
+    font-size: 0.8rem;
+    color: #9CA3AF;
+}
+
+.price-tag {
+    text-align: right;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.price-tag small {
+    display: block;
+    font-size: 0.6rem;
+    color: #6B7280;
+    font-weight: 400;
+    margin-top: 0.25rem;
+}
+
+/* Pro Tip */
+.pro-tip-card {
+    background: #FFF7ED;
+    border: 1px solid #FED7AA;
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    gap: 1rem;
+}
+
+.bulb-icon {
+    color: #F59E0B;
+    font-size: 1.25rem;
+}
+
+.pro-tip-card p {
+    font-size: 0.85rem;
+    color: #9A3412;
+    margin-top: 0.25rem;
+}
+
+/* Stepper */
+.stepper-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.4;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.step-circle {
+    width: 32px;
+    height: 32px;
+    background: #E5E7EB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #6B7280;
+}
+
+.step.active .step-circle {
+    background: var(--color-primary);
+    color: white;
+}
+
+.step span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #374151;
+}
+
+.step-line {
+    width: 60px;
+    height: 2px;
+    background: #E5E7EB;
+    margin: 0 1rem;
+    margin-bottom: 1rem;
+    /* align with circle center roughly */
+}
+
+@media (max-width: 960px) {
+    .create-survey-grid {
+        grid-template-columns: 1fr;
+    }
+}

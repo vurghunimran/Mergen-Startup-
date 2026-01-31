@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Mergen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="js/theme.js"></script>
+    <style>
+        .settings-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #E5E7EB;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .section-desc {
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-input,
+        .form-textarea {
+            padding: 0.75rem 1rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+            font-family: inherit;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: #EA580C;
+            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .toggle-switch-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .theme-toggle {
+            display: flex;
+            background: #F3F4F6;
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .theme-btn {
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: #6B7280;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .theme-btn.active {
+            background: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            color: #111827;
+        }
+
+        .security-row {
+            padding: 1.5rem 0;
+            border-top: 1px solid #F3F4F6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .security-icon {
+            width: 40px;
+            height: 40px;
+            background: #FFF7ED;
+            color: #EA580C;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .danger-zone {
+            margin-top: 2rem;
+            border-top: 1px solid #FEE2E2;
+            padding-top: 2rem;
+        }
+
+        .btn-danger-text {
+            color: #EF4444;
+            background: transparent;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            font-size: 0.95rem;
+        }
+
+        .btn-danger-text:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body style="background: #F8F9FA;">
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="sidebar-logo">
+                <img src="images/logo.svg" alt="Mergen Logo">
+                MERGEN
+            </a>
+
+            <nav class="sidebar-nav">
+                <a href="client-dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="client-projects.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    My Projects
+                </a>
+                <a href="client-analytics.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    Analytics
+                </a>
+                <a href="client-settings.html" class="nav-link active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                        </path>
+                    </svg>
+                    Settings
+                </a>
+            </nav>
+            <div class="sidebar-user">
+                <div class="user-avatar" id="avatar-initial" style="background: #E0E7FF; color: #4338CA;">C</div>
+                <div class="user-info">
+                    <span class="user-name" id="sidebar-username">Client User</span>
+                    <span class="user-badge">Enterprise Account</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div style="margin-bottom: 2rem;">
+                <h1 style="font-size: 1.8rem; font-weight: 800; color: #111827; margin:0;">Settings</h1>
+                <p style="color: #6B7280; margin-top: 0.25rem;">Manage your account settings and set e-mail preferences.
+                </p>
+            </div>
+
+            <!-- Profile Section -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h3 class="section-title">Profile Settings</h3>
+                    <p class="section-desc">Update your personal information</p>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" value="Sarah Jenkins">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" value="sarah@mergen.ai">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 2rem;">
+                    <label class="form-label">Bio</label>
+                    <textarea
+                        class="form-textarea">Head of Research at Mergen. Enthusiastic about data-driven insights and community growth.</textarea>
+                </div>
+
+                <div style="text-align: right;">
+                    <button class="btn btn-primary btn-medium">Save Changes</button>
+                </div>
+            </section>
+
+            <!-- Preferences Section -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h3 class="section-title">App Preferences</h3>
+                </div>
+
+                <div class="toggle-switch-container"
+                    style="border-bottom: 1px solid #F3F4F6; margin-bottom: 1rem; padding-bottom: 1rem;">
+                    <div>
+                        <div style="font-weight: 600; color: #374151;">Appearance</div>
+                        <div style="font-size: 0.85rem; color: #9CA3AF;">Switch between light and dark themes</div>
+                    </div>
+                    <div class="theme-toggle">
+                        <button class="theme-btn active">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            Light
+                        </button>
+                        <button class="theme-btn">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                            Dark
+                        </button>
+                    </div>
+                </div>
+
+                <div class="toggle-switch-container">
+                    <div>
+                        <div style="font-weight: 600; color: #374151;">Language</div>
+                        <div style="font-size: 0.85rem; color: #9CA3AF;">Set your preferred display language</div>
+                    </div>
+                    <select class="form-input" style="width: auto; padding-right: 2rem;">
+                        <option>English (US)</option>
+                        <option>Spanish</option>
+                        <option>French</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Security Section -->
+            <section class="settings-section">
+                <div class="section-header" style="display:flex; align-items:center; gap:0.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <h3 class="section-title" style="margin:0;">Security</h3>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">New Password</label>
+                        <input type="password" class="form-input" placeholder="••••••••">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-input" placeholder="••••••••">
+                    </div>
+                </div>
+
+                <div class="security-row">
+                    <div style="display:flex; align-items:center;">
+                        <div class="security-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="m9 12 2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div style="font-weight:600; color:#374151;">Two-factor Authentication</div>
+                            <div style="font-size:0.85rem; color:#9CA3AF;">Keep your account extra secure</div>
+                        </div>
+                    </div>
+                    <button
+                        style="color: #EA580C; background: none; border: none; font-weight: 600; cursor: pointer;">Enable
+                        2FA</button>
+                </div>
+
+                <div class="danger-zone" style="display:flex; justify-content:space-between; align-items:center;">
+                    <button class="btn-danger-text" onclick="handleDeactivate()">Deactivate Account</button>
+                    <button class="btn btn-primary" style="background:#EA580C; border-color:#EA580C;">Update
+                        Security</button>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        // Simple script to set user name in sidebar
+        const userStr = localStorage.getItem('mergen_user');
+        if (userStr) {
+            try {
+                const user = JSON.parse(userStr);
+                let displayName = "Client User";
+                if (user.email) {
+                    const namePart = user.email.split('@')[0];
+                    displayName = namePart.charAt(0).toUpperCase() + namePart.slice(1);
+                }
+                if (document.getElementById('sidebar-username')) document.getElementById('sidebar-username').innerText = displayName;
+                if (document.getElementById('avatar-initial')) document.getElementById('avatar-initial').innerText = displayName.charAt(0);
+            } catch (e) { }
+        }
+
+        function handleDeactivate() {
+            if (confirm("Are you sure you want to deactivate your account?")) {
+                localStorage.removeItem('mergen_user');
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+<script src="js/supabase-config.js"></script></body>
+
+</html>

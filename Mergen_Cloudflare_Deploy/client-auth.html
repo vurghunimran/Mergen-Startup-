@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Access | Mergen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body style="background: #0B0E14;">
+
+    <div class="auth-split-wrapper">
+        <!-- Left Panel (Dark Gradient with Info) -->
+        <div class="auth-left-panel">
+            <div>
+                <a href="index.html" class="auth-brand" style="text-decoration: none;">
+                    <img src="images/logo.svg" alt="Mergen Logo" style="height: 32px;">
+                    MERGEN
+                </a>
+            </div>
+
+            <div class="auth-hero-text">
+                <div class="secure-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    Enterprise Secure
+                </div>
+                <h1>Unlock insights from <span>verified communities</span></h1>
+                <p>Join 500+ top companies conducting research on our secure platform. Get real-time data from millions
+                    of participants worldwide with AI-powered accuracy.</p>
+            </div>
+
+            <div class="trusted-section">
+                <div class="trusted-label">TRUSTED BY TEAMS AT</div>
+                <div class="trusted-logos">
+                    <div class="trust-logo">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                        </svg>
+                        Fintech
+                    </div>
+                    <div class="trust-logo">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                            <path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                            <path
+                                d="M16.5 4.5c1.5-1.26 2-5 2-5s-3.74.5-5 2c-.71.84-.7 2.13.09 2.91a2.18 2.18 0 0 0 2.91.09z" />
+                        </svg>
+                        TechCorp
+                    </div>
+                    <div class="trust-logo">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                        BioHealth
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel (Form) -->
+        <div class="auth-right-panel">
+            <div class="auth-form-header">
+                <h2 id="auth-header-title">Create client account</h2>
+                <p id="auth-header-desc">Start gathering data-driven insights in minutes.</p>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab" id="tab-login" onclick="switchTab('login')">Log In</div>
+                <div class="auth-tab active" id="tab-signup" onclick="switchTab('signup')">Sign Up</div>
+            </div>
+
+            <form id="auth-form">
+                <!-- Name Fields -->
+                <div class="signup-only form-grid">
+                    <div class="dark-input-group">
+                        <label class="dark-label">First Name</label>
+                        <div class="input-icon-wrapper">
+                            <span class="input-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg></span>
+                            <input type="text" class="dark-input has-icon" placeholder="John" name="firstName">
+                        </div>
+                    </div>
+                    <div class="dark-input-group">
+                        <label class="dark-label">Last Name</label>
+                        <div class="input-icon-wrapper">
+                            <span class="input-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg></span>
+                            <input type="text" class="dark-input has-icon" placeholder="Doe" name="lastName">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company & Position -->
+                <div class="signup-only form-grid">
+                    <div class="dark-input-group">
+                        <label class="dark-label">Company Name</label>
+                        <div class="input-icon-wrapper">
+                            <span class="input-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="21" width="18" height="2"></rect>
+                                    <path d="M5 21V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14"></path>
+                                </svg></span>
+                            <input type="text" class="dark-input has-icon" placeholder="Acme Inc." name="company">
+                        </div>
+                    </div>
+                    <div class="dark-input-group">
+                        <label class="dark-label">Position</label>
+                        <div class="input-icon-wrapper">
+                            <span class="input-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg></span>
+                            <input type="text" class="dark-input has-icon" placeholder="Product Manager"
+                                name="position">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email (Common) -->
+                <div class="dark-input-group">
+                    <label class="dark-label">Email Address</label>
+                    <div class="input-icon-wrapper">
+                        <span class="input-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg></span>
+                        <input type="email" id="email" class="dark-input has-icon" placeholder="john@company.com"
+                            required>
+                    </div>
+                </div>
+
+                <!-- Password (Common) -->
+                <div class="dark-input-group">
+                    <label class="dark-label">Password</label>
+                    <div class="input-icon-wrapper">
+                        <span class="input-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg></span>
+                        <input type="password" id="password" class="dark-input has-icon" placeholder="••••••••"
+                            required>
+                    </div>
+                </div>
+
+                <!-- Phone (Extra per DB request) -->
+                <div class="signup-only dark-input-group">
+                    <label class="dark-label">Phone Number</label>
+                    <div class="input-icon-wrapper">
+                        <span class="input-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg></span>
+                        <input type="tel" class="dark-input has-icon" placeholder="+1 (555) 000-0000" name="phone">
+                    </div>
+                </div>
+
+                <!-- Industry & Type -->
+                <div class="signup-only form-grid">
+                    <div class="dark-input-group">
+                        <label class="dark-label">Industry</label>
+                        <select class="dark-input" name="industry">
+                            <option value="" disabled selected>Select Industry</option>
+                            <option value="tech">Technology</option>
+                            <option value="finance">Finance</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="retail">Retail</option>
+                        </select>
+                    </div>
+                    <div class="dark-input-group">
+                        <label class="dark-label">Client Type</label>
+                        <select class="dark-input" name="clientType" id="client-type-select">
+                            <option value="academic">Students, Researchers, Universities</option>
+                            <option value="startup">Startups</option>
+                            <option value="sme" selected>SMEs</option>
+                            <option value="government">Governmental Agencies, Int. Institutions</option>
+                            <option value="enterprise">Companies, Cooperation</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn btn-auth-action">Continue to Audience Setup →</button>
+            </form>
+
+            <div class="social-auth">
+                <div class="social-title">Or continue with</div>
+                <div class="social-buttons">
+                    <button class="btn-social">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" width="20" height="20"
+                            alt="Google">
+                        Google
+                    </button>
+                    <button class="btn-social">
+                        <img src="https://www.svgrepo.com/show/448234/linkedin.svg" width="20" height="20"
+                            alt="LinkedIn">
+                        LinkedIn
+                    </button>
+                </div>
+            </div>
+
+            <div class="auth-bottom-link">
+                <span id="footer-text">Not a client?</span>
+                <a href="survey-taker.html">Join as a Participant</a>
+            </div>
+
+            <p style="text-align: center; color: #4B5563; font-size: 0.75rem; margin-top: 2rem;">
+                By clicking "Continue", you agree to our <a href="#"
+                    style="color:#6B7280; text-decoration: underline;">Terms</a> and <a href="#"
+                    style="color:#6B7280; text-decoration: underline;">Privacy Policy</a>.
+            </p>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+</body>
+
+</html>
